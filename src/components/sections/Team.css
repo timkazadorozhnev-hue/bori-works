@@ -1,0 +1,130 @@
+.team__controls {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.team__btn {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--c-line-strong);
+  border-radius: 50%;
+  transition: background 0.4s var(--ease), color 0.4s var(--ease), opacity 0.3s;
+}
+
+.team__btn:hover:not(:disabled) {
+  background: var(--c-text);
+  color: var(--c-bg);
+}
+
+.team__btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* Лента: начинается от края контейнера и уходит за правый край экрана */
+.team__track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(260px, 24vw, 380px);
+  column-gap: clamp(16px, 2vw, 32px);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: max(var(--gutter), calc((100vw - var(--max-w)) / 2 + var(--gutter)));
+  padding-inline: max(var(--gutter), calc((100vw - var(--max-w)) / 2 + var(--gutter)));
+  scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
+}
+
+.team__track::-webkit-scrollbar {
+  display: none;
+}
+
+.team__track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.team__track.is-dragging .tcard {
+  pointer-events: none;
+}
+
+.tcard {
+  scroll-snap-align: start;
+}
+
+.tcard__photo {
+  aspect-ratio: 3 / 4;
+  margin-bottom: 24px;
+}
+
+.tcard__photo img {
+  filter: grayscale(1) contrast(1.05) brightness(0.9);
+  transition: filter 0.9s var(--ease), transform 1.4s var(--ease), opacity 1.2s var(--ease);
+}
+
+.tcard:hover .tcard__photo img {
+  filter: grayscale(0) contrast(1) brightness(1);
+  transform: scale(1.04);
+}
+
+.tcard__index {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  color: var(--c-text);
+  mix-blend-mode: difference;
+}
+
+.tcard__name {
+  font-size: var(--fs-lg);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.tcard__role {
+  margin-top: 8px;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+}
+
+.tcard__bio {
+  margin-top: 14px;
+  font-size: var(--fs-sm);
+  color: var(--c-muted);
+}
+
+.team__progress {
+  position: relative;
+  height: 1px;
+  margin-top: 56px;
+  background: var(--c-line);
+  overflow: hidden;
+}
+
+.team__progress span {
+  position: absolute;
+  inset: 0;
+  background: var(--c-text);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease);
+}
+
+@media (max-width: 640px) {
+  .team__track {
+    grid-auto-columns: 78vw;
+  }
+
+  .team__controls {
+    justify-content: flex-start;
+  }
+}

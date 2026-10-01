@@ -1,0 +1,40 @@
+.shead {
+  margin-bottom: clamp(48px, 7vw, 112px);
+}
+
+.shead__meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.shead__index {
+  font-size: var(--fs-xs);
+  color: var(--c-dim);
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+}
+
+.shead__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 380px);
+  gap: 48px;
+  align-items: end;
+}
+
+.shead__title .serif {
+  color: var(--c-accent);
+}
+
+.shead__aside {
+  font-size: var(--fs-base);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .shead__row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}

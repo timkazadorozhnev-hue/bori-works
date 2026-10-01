@@ -1,0 +1,90 @@
+.projects__filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: clamp(48px, 6vw, 88px);
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--c-line);
+}
+
+.projects__tab {
+  padding: 10px 18px;
+  font-size: var(--fs-sm);
+  color: var(--c-muted);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  transition: color 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.projects__tab sup {
+  margin-left: 4px;
+  font-size: 0.65em;
+  color: var(--c-dim);
+}
+
+.projects__tab:hover {
+  color: var(--c-text);
+}
+
+.projects__tab.is-active {
+  color: var(--c-text);
+  border-color: var(--c-line-strong);
+}
+
+.projects__tab.is-active sup {
+  color: var(--c-accent);
+}
+
+/* Журнальная сетка 12 колонок */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(24px, 3vw, 56px);
+  row-gap: clamp(72px, 9vw, 140px);
+  align-items: start;
+}
+
+.projects__cell--wide {
+  grid-column: span 7;
+}
+
+.projects__cell--tall {
+  grid-column: span 5;
+}
+
+/* Небольшие смещения для кинематографичной асимметрии */
+.projects__cell--tall.is-right {
+  margin-top: 18%;
+}
+
+.projects__cell--wide.is-right {
+  margin-top: 12%;
+}
+
+@media (max-width: 1000px) {
+  .projects__cell--wide,
+  .projects__cell--tall {
+    grid-column: span 6;
+    margin-top: 0 !important;
+  }
+
+  .projects__cell .pcard__media {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (max-width: 680px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+    row-gap: 64px;
+  }
+
+  .projects__cell--wide,
+  .projects__cell--tall {
+    grid-column: auto;
+  }
+
+  .projects__cell .pcard__media {
+    aspect-ratio: 16 / 11;
+  }
+}

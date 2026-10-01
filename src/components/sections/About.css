@@ -1,0 +1,178 @@
+.about__meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.about__statement {
+  max-width: 22ch;
+  font-size: clamp(2rem, 1rem + 3.6vw, 5rem);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin-bottom: clamp(72px, 10vw, 160px);
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(40px, 7vw, 120px);
+  align-items: start;
+}
+
+.about__visual {
+  position: relative;
+  padding-bottom: 18%;
+}
+
+.about__img-main {
+  aspect-ratio: 4 / 5;
+}
+
+.about__img-small {
+  position: absolute;
+  right: -8%;
+  bottom: 0;
+  width: 42%;
+  aspect-ratio: 3 / 4;
+  border: 8px solid var(--c-bg);
+}
+
+.about__text {
+  display: grid;
+  gap: 24px;
+  padding-top: 8%;
+}
+
+.about__lead {
+  font-size: var(--fs-md);
+  line-height: 1.55;
+}
+
+.about__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 40px 0 0;
+  border-top: 1px solid var(--c-line);
+}
+
+.about__stat {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--c-line);
+}
+
+.about__stat:nth-child(odd) {
+  padding-right: 24px;
+  border-right: 1px solid var(--c-line);
+}
+
+.about__stat:nth-child(even) {
+  padding-left: 28px;
+}
+
+.about__stat dd {
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.about__stat-num {
+  font-size: clamp(2.5rem, 1.6rem + 2.4vw, 4.25rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.about__stat-label {
+  font-size: var(--fs-sm);
+  color: var(--c-muted);
+}
+
+.about__subhead {
+  margin-bottom: 40px;
+}
+
+.about__approach {
+  margin-top: clamp(96px, 12vw, 180px);
+}
+
+.about__pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--c-line);
+}
+
+.about__pillar {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  padding: 36px 36px 0 0;
+}
+
+.about__pillar + .about__pillar {
+  padding-left: 36px;
+  border-left: 1px solid var(--c-line);
+}
+
+.about__pillar-num {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--c-accent);
+}
+
+.about__geo {
+  margin-top: clamp(96px, 12vw, 180px);
+}
+
+.about__cities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1em 0.5em;
+  font-size: clamp(1.75rem, 1rem + 3vw, 4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.about__cities li {
+  color: var(--c-dim);
+  transition: color 0.4s var(--ease);
+}
+
+.about__cities li:hover {
+  color: var(--c-text);
+}
+
+.about__cities li:not(:last-child)::after {
+  content: '/';
+  margin-left: 0.5em;
+  color: var(--c-line-strong);
+  font-weight: 300;
+}
+
+@media (max-width: 900px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about__img-small {
+    right: 0;
+  }
+
+  .about__text {
+    padding-top: 0;
+  }
+
+  .about__pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .about__pillar,
+  .about__pillar + .about__pillar {
+    padding: 32px 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--c-line);
+  }
+}

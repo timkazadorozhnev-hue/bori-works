@@ -1,0 +1,224 @@
+.services {
+  background: var(--c-bg-2);
+}
+
+.services__list {
+  position: relative;
+  border-top: 1px solid var(--c-line);
+}
+
+/* Превью, следующее за курсором */
+.services__preview {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  width: clamp(240px, 22vw, 360px);
+  aspect-ratio: 4 / 5;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  will-change: transform;
+}
+
+.services__preview.is-visible {
+  opacity: 1;
+}
+
+.services__preview-img {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.5s var(--ease), transform 0.7s var(--ease);
+}
+
+.services__preview-img.is-active {
+  opacity: 1;
+  transform: none;
+}
+
+.services__preview-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Строка услуги */
+.service {
+  position: relative;
+  border-bottom: 1px solid var(--c-line);
+  transition: opacity 0.5s var(--ease);
+}
+
+.service.is-visible.is-dimmed {
+  opacity: 0.35;
+}
+
+.service__head {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 64px 1fr 40px;
+  align-items: center;
+  gap: 16px;
+  padding: clamp(22px, 2.6vw, 40px) 0;
+  text-align: left;
+}
+
+.service__num {
+  font-size: var(--fs-xs);
+  color: var(--c-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.service__title {
+  font-size: clamp(1.75rem, 1rem + 3vw, 4.25rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  transition: transform 0.7s var(--ease), color 0.4s;
+}
+
+.service__head:hover .service__title {
+  transform: translateX(16px);
+}
+
+.service.is-open .service__title {
+  color: var(--c-accent);
+}
+
+.service__toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--c-line-strong);
+  border-radius: 50%;
+  transition: transform 0.6s var(--ease), background 0.3s;
+}
+
+.service__toggle::before,
+.service__toggle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 1px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.service__toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  transition: transform 0.5s var(--ease);
+}
+
+.service.is-open .service__toggle::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* Плавное раскрытие через grid-template-rows */
+.service__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.7s var(--ease);
+}
+
+.service.is-open .service__body {
+  grid-template-rows: 1fr;
+}
+
+.service__body-inner {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.service__content {
+  grid-column: 2;
+  padding-bottom: 40px;
+  max-width: 560px;
+}
+
+.service__content p {
+  font-size: var(--fs-md);
+  line-height: 1.5;
+  color: var(--c-muted);
+}
+
+.service__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.service__tags li {
+  padding: 6px 14px;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  border: 1px solid var(--c-line);
+  border-radius: 999px;
+  color: var(--c-muted);
+}
+
+/* Миниатюра только на сенсорных экранах (на desktop — превью у курсора) */
+.service__thumb {
+  display: none;
+}
+
+.services__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: clamp(64px, 8vw, 120px);
+}
+
+.services__cta .serif {
+  color: var(--c-accent);
+}
+
+@media (hover: none), (max-width: 900px) {
+  .services__preview {
+    display: none;
+  }
+
+  .service.is-visible.is-dimmed {
+    opacity: 1;
+  }
+
+  .service__thumb {
+    display: block;
+    grid-column: 3;
+    aspect-ratio: 16 / 10;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 760px) {
+  .service__head {
+    grid-template-columns: 36px 1fr 36px;
+  }
+
+  .service__toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .service__body-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .service__content,
+  .service__thumb {
+    grid-column: 1;
+  }
+
+  .service__content {
+    padding-bottom: 24px;
+  }
+}

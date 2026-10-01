@@ -1,0 +1,33 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.logo__img {
+  height: 28px;
+  width: auto;
+}
+
+.logo__text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-size: 1rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.logo__strong {
+  font-weight: 600;
+}
+
+.logo__light {
+  font-weight: 300;
+  color: var(--c-muted);
+  transition: color 0.4s var(--ease);
+}
+
+.logo:hover .logo__light {
+  color: var(--c-accent);
+}

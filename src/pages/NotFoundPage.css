@@ -1,0 +1,24 @@
+.notfound {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--header-h);
+  padding-bottom: 64px;
+}
+
+.notfound__code {
+  margin: 24px 0;
+  font-size: clamp(7rem, 4rem + 18vw, 22rem);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--c-line-strong);
+}
+
+.notfound__text {
+  max-width: 640px;
+  margin-bottom: 40px;
+}
+
+.notfound__text .serif {
+  color: var(--c-accent);
+}
