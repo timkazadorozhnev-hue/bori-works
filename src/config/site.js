@@ -25,9 +25,9 @@ export const site = {
   },
 
   contacts: {
-    email: 'hello@boriworks.com',
-    phone: '+7 (495) 120-45-67',
-    phoneHref: '+74951204567',
+    email: 'boriworks@gmail.com',
+    phone: '+7 (701) 218-77-88',
+    phoneHref: '+77012187788',
     address: 'Москва, Берсеневская наб., 6, стр. 3',
     addressNote: 'Пн–Пт, 10:00–19:00',
     mapUrl: 'https://yandex.ru/maps/?text=Москва%2C%20Берсеневская%20набережная%2C%206с3',
