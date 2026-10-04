@@ -7,6 +7,7 @@ import { navigation, site } from '../../config/site.js';
  */
 export default {
   meta: {
+    title: site.seoTitle,
     tagline: site.tagline,
     description: site.description,
     ogLocale: 'ru_RU',

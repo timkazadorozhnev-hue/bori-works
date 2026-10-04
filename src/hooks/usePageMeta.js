@@ -4,6 +4,9 @@ import { site } from '../config/site';
 import { DEFAULT_LANG, LANGUAGES, localizePath } from '../i18n/config';
 import { useLang } from '../i18n/LanguageContext';
 
+/** Картинка для превью ссылок, если у страницы нет своей (логотип на тёмном фоне). */
+const DEFAULT_OG_IMAGE = `${site.url}/og-image.jpg`;
+
 function setMeta(attr, key, content) {
   if (!content) return;
   let el = document.head.querySelector(`meta[${attr}="${key}"]`);
@@ -38,7 +41,7 @@ export function usePageMeta({ title, description, image, notFound = false } = {}
   const { lang, t } = useLang();
 
   useEffect(() => {
-    const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — ${t.meta.tagline.toLowerCase()}`;
+    const fullTitle = title ? `${title} — ${site.name}` : t.meta.title;
     const desc = description || t.meta.description;
     const url = `${site.url}${pathname}`;
 
@@ -47,11 +50,11 @@ export function usePageMeta({ title, description, image, notFound = false } = {}
     setMeta('property', 'og:title', fullTitle);
     setMeta('property', 'og:description', desc);
     setMeta('property', 'og:url', url);
-    setMeta('property', 'og:image', image);
+    setMeta('property', 'og:image', image || DEFAULT_OG_IMAGE);
     setMeta('property', 'og:locale', t.meta.ogLocale);
     setMeta('name', 'twitter:title', fullTitle);
     setMeta('name', 'twitter:description', desc);
-    setMeta('name', 'twitter:image', image);
+    setMeta('name', 'twitter:image', image || DEFAULT_OG_IMAGE);
 
     const canonical = document.head.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', url);

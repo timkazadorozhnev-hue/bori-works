@@ -7,9 +7,9 @@ import { site } from '../../config/site.js';
  */
 export default {
   meta: {
+    title: 'BORI WORKS — Feature Film Production',
     tagline: 'Full-service film production company',
-    description:
-      'BORI WORKS is a full-service production company: feature films, series, commercials, music videos, documentaries and post-production.',
+    description: 'BORI WORKS produces feature films, series, commercials, music videos, documentaries and other video projects.',
     ogLocale: 'en_US',
   },
 
