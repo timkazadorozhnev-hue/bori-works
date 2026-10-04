@@ -1,21 +1,23 @@
 import { Link } from 'react-router-dom';
+import { useLang } from '../i18n/LanguageContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { ArrowIcon } from '../components/ui/Icons';
 import './NotFoundPage.css';
 
 export default function NotFoundPage() {
-  usePageMeta({ title: 'Страница не найдена' });
+  const { t, lp } = useLang();
+  usePageMeta({ title: t.notFound.title, notFound: true });
 
   return (
     <section className="notfound">
       <div className="container">
-        <p className="eyebrow">Ошибка 404 · Сцена вырезана при монтаже</p>
+        <p className="eyebrow">{t.notFound.eyebrow}</p>
         <h1 className="h-display notfound__code">404</h1>
         <p className="h-lg notfound__text">
-          Такой страницы нет. <span className="serif">Но у нас есть много других историй.</span>
+          {t.notFound.text[0]} <span className="serif">{t.notFound.text[1]}</span>
         </p>
-        <Link to="/" className="btn btn--solid">
-          На главную <ArrowIcon />
+        <Link to={lp('/')} className="btn btn--solid">
+          {t.notFound.home} <ArrowIcon />
         </Link>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLang } from '../../i18n/LanguageContext';
 import { sendContactForm } from '../../services/contactService';
 import { ArrowIcon } from '../ui/Icons';
 import './ContactForm.css';
@@ -7,16 +8,18 @@ import './ContactForm.css';
 const initial = { name: '', email: '', company: '', message: '', consent: false, website: '' };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+/** Возвращает поля с ошибками; тексты сообщений — в словаре (t.form.errors). */
 function validate(v) {
   const e = {};
-  if (v.name.trim().length < 2) e.name = 'Укажите имя';
-  if (!EMAIL_RE.test(v.email.trim())) e.email = 'Проверьте email';
-  if (v.message.trim().length < 10) e.message = 'Расскажите чуть подробнее (от 10 символов)';
-  if (!v.consent) e.consent = 'Нужно согласие на обработку данных';
+  if (v.name.trim().length < 2) e.name = true;
+  if (!EMAIL_RE.test(v.email.trim())) e.email = true;
+  if (v.message.trim().length < 10) e.message = true;
+  if (!v.consent) e.consent = true;
   return e;
 }
 
 export default function ContactForm() {
+  const { t, lp } = useLang();
   const [values, setValues] = useState(initial);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
@@ -48,12 +51,12 @@ export default function ContactForm() {
   if (status === 'success') {
     return (
       <div className="cform__success" role="status">
-        <span className="eyebrow">Сообщение отправлено</span>
+        <span className="eyebrow">{t.form.sentEyebrow}</span>
         <p className="h-lg">
-          Спасибо! Мы свяжемся с вами <span className="serif">в течение одного рабочего дня.</span>
+          {t.form.sentText[0]} <span className="serif">{t.form.sentText[1]}</span>
         </p>
         <button className="btn" onClick={() => setStatus('idle')}>
-          Отправить ещё
+          {t.form.sendMore}
         </button>
       </div>
     );
@@ -88,7 +91,7 @@ export default function ContactForm() {
       <label htmlFor={`cf-${name}`}>{label}</label>
       {errors[name] && (
         <span className="cform__error" id={`cf-${name}-err`}>
-          {errors[name]}
+          {t.form.errors[name]}
         </span>
       )}
     </div>
@@ -97,11 +100,11 @@ export default function ContactForm() {
   return (
     <form className="cform" onSubmit={onSubmit} noValidate>
       <div className="cform__row">
-        {field('name', 'Имя *', { autoComplete: 'name' })}
-        {field('email', 'Email *', { type: 'email', autoComplete: 'email' })}
+        {field('name', t.form.name, { autoComplete: 'name' })}
+        {field('email', t.form.email, { type: 'email', autoComplete: 'email' })}
       </div>
-      {field('company', 'Компания', { autoComplete: 'organization' })}
-      {field('message', 'Расскажите о проекте *', { as: 'textarea' })}
+      {field('company', t.form.company, { autoComplete: 'organization' })}
+      {field('message', t.form.message, { as: 'textarea' })}
 
       {/* Скрытое поле-ловушка для ботов */}
       <input
@@ -119,18 +122,22 @@ export default function ContactForm() {
         <input type="checkbox" name="consent" checked={values.consent} onChange={onChange} />
         <span className="cform__check" aria-hidden="true" />
         <span>
-          Я согласен(на) с <Link to="/privacy" className="link-line">политикой конфиденциальности</Link>
+          {t.form.consent[0]}
+          <Link to={lp('/privacy')} className="link-line">
+            {t.form.consent[1]}
+          </Link>
+          {t.form.consent[2]}
         </span>
       </label>
-      {errors.consent && <span className="cform__error">{errors.consent}</span>}
+      {errors.consent && <span className="cform__error">{t.form.errors.consent}</span>}
 
       <div className="cform__submit">
         <button type="submit" className="btn btn--solid" disabled={status === 'sending'}>
-          {status === 'sending' ? 'Отправляем…' : 'Отправить'} <ArrowIcon />
+          {status === 'sending' ? t.form.sending : t.form.send} <ArrowIcon />
         </button>
         {status === 'error' && (
           <p className="cform__error" role="alert">
-            Не удалось отправить. Попробуйте ещё раз или напишите нам на почту.
+            {t.form.sendError}
           </p>
         )}
       </div>

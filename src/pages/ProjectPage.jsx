@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { getProjectBySlug, projects } from '../data/projects';
+import { useLang } from '../i18n/LanguageContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import Img from '../components/ui/Img';
 import Reveal from '../components/ui/Reveal';
@@ -12,12 +12,14 @@ import './ProjectPage.css';
 
 export default function ProjectPage() {
   const { slug } = useParams();
-  const project = getProjectBySlug(slug);
+  const { t, content, lp } = useLang();
+  const { projects } = content;
+  const project = projects.find((p) => p.slug === slug);
   const [videoOpen, setVideoOpen] = useState(false);
   const closeVideo = useCallback(() => setVideoOpen(false), []);
 
   usePageMeta(
-    project ? { title: project.title, description: project.short, image: project.cover } : { title: 'Проект не найден' },
+    project ? { title: project.title, description: project.short, image: project.cover } : { title: t.project.notFound, notFound: true },
   );
 
   if (!project) return <NotFoundPage />;
@@ -35,8 +37,8 @@ export default function ProjectPage() {
         </div>
         <div className="project__hero-content container">
           <Reveal variant="fade" delay={0.1}>
-            <Link to={{ pathname: '/', hash: '#projects' }} className="back-link">
-              <ChevronIcon direction="left" /> Все проекты
+            <Link to={{ pathname: lp('/'), hash: '#projects' }} className="back-link">
+              <ChevronIcon direction="left" /> {t.project.back}
             </Link>
           </Reveal>
           <div>
@@ -50,7 +52,7 @@ export default function ProjectPage() {
               <span>
                 <PlayIcon />
               </span>
-              Смотреть трейлер
+              {t.project.trailer}
             </button>
           )}
         </div>
@@ -60,10 +62,10 @@ export default function ProjectPage() {
       <div className="container">
         <dl className="project__meta">
           {[
-            ['Год', project.year],
-            ['Формат', project.type],
-            ['Жанр', project.genre],
-            ['Хронометраж', project.duration],
+            [t.project.year, project.year],
+            [t.project.format, project.type],
+            [t.project.genre, project.genre],
+            [t.project.duration, project.duration],
           ].map(([label, value], i) => (
             <Reveal key={label} delay={i * 0.06}>
               <dt>{label}</dt>
@@ -82,7 +84,7 @@ export default function ProjectPage() {
           </div>
           {project.facts?.length > 0 && (
             <Reveal as="aside" className="project__facts" delay={0.15}>
-              <h2 className="eyebrow">Детали</h2>
+              <h2 className="eyebrow">{t.project.details}</h2>
               <dl>
                 {project.facts.map((f) => (
                   <div key={f.label}>
@@ -98,13 +100,13 @@ export default function ProjectPage() {
 
       {/* Кадры */}
       {still1 && (
-        <section className="project__stills container" aria-label="Кадры из проекта">
+        <section className="project__stills container" aria-label={t.project.stillsLabel}>
           <Reveal className="media zoom project__still project__still--wide">
-            <Img src={still1} alt={`${project.title} — кадр 1`} sizes="(max-width: 760px) 100vw, 90vw" />
+            <Img src={still1} alt={t.project.still(project.title, 1)} sizes="(max-width: 760px) 100vw, 90vw" />
           </Reveal>
           {otherStills.map((s, i) => (
             <Reveal key={s} className="media zoom project__still" delay={i * 0.1}>
-              <Img src={s} alt={`${project.title} — кадр ${i + 2}`} sizes="(max-width: 760px) 100vw, 45vw" />
+              <Img src={s} alt={t.project.still(project.title, i + 2)} sizes="(max-width: 760px) 100vw, 45vw" />
             </Reveal>
           ))}
         </section>
@@ -112,9 +114,9 @@ export default function ProjectPage() {
 
       {/* Команда проекта */}
       {project.credits?.length > 0 && (
-        <section className="project__credits container" aria-label="Команда проекта">
+        <section className="project__credits container" aria-label={t.project.credits}>
           <Reveal as="h2" className="eyebrow">
-            Команда проекта
+            {t.project.credits}
           </Reveal>
           <ul>
             {project.credits.map((c, i) => (
@@ -128,12 +130,12 @@ export default function ProjectPage() {
       )}
 
       {/* Следующий проект */}
-      <Link to={`/projects/${next.slug}`} className="project__next">
+      <Link to={lp(`/projects/${next.slug}`)} className="project__next">
         <div className="project__next-media media">
           <Img src={next.cover} alt="" sizes="100vw" />
         </div>
         <div className="project__next-content container">
-          <span className="eyebrow">Следующий проект</span>
+          <span className="eyebrow">{t.project.next}</span>
           <span className="h-xl">{next.title}</span>
           <span className="project__next-arrow" aria-hidden="true">
             <ChevronIcon />

@@ -71,6 +71,13 @@
   transform: translateX(-50%) scale(1);
 }
 
+/* Правая группа: CTA, переключатель языка, гамбургер */
+.header__end {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.6vw, 24px);
+}
+
 .header__cta {
   font-size: var(--fs-xs);
   font-weight: 500;
@@ -192,6 +199,17 @@
 
   .header__burger {
     display: block;
+  }
+}
+
+/* Узкие телефоны: логотип, переключатель языка и гамбургер в одну строку */
+@media (max-width: 420px) {
+  .header__bar {
+    gap: 12px;
+  }
+
+  .header__end {
+    gap: 6px;
   }
 }
 

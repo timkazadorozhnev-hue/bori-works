@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { navigation, site } from '../../config/site';
+import { stripLang } from '../../i18n/config';
+import { useLang } from '../../i18n/LanguageContext';
 import { useLockBody } from '../../hooks/useLockBody';
 import Logo from './Logo';
+import LangSwitch from './LangSwitch';
 import './Header.css';
 
 /** Отслеживает, какая секция главной сейчас на экране (подсветка пункта меню). */
-function useActiveSection(enabled) {
+function useActiveSection(enabled, pathname) {
   const [active, setActive] = useState('top');
 
+  // pathname в зависимостях: при смене языка главная монтируется заново, и секции — новые DOM-узлы.
   useEffect(() => {
     if (!enabled) return undefined;
     const ids = navigation.map((n) => n.hash);
@@ -21,18 +25,20 @@ function useActiveSection(enabled) {
     );
     els.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
-  }, [enabled]);
+  }, [enabled, pathname]);
 
   return enabled ? active : null;
 }
 
 export default function Header() {
   const { pathname } = useLocation();
-  const isHome = pathname === '/';
+  const { t, lp } = useLang();
+  const isHome = stripLang(pathname) === '/';
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
-  const active = useActiveSection(isHome);
+  const active = useActiveSection(isHome, pathname);
+  const home = lp('/');
 
   useLockBody(open);
 
@@ -76,46 +82,50 @@ export default function Header() {
       <div className="header__bar container">
         <Logo onClick={close} />
 
-        <nav className="header__nav" aria-label="Основная навигация">
+        <nav className="header__nav" aria-label={t.header.navLabel}>
           <ul>
             {navigation.slice(1).map((item) => (
               <li key={item.hash}>
                 <Link
-                  to={{ pathname: '/', hash: `#${item.hash}` }}
+                  to={{ pathname: home, hash: `#${item.hash}` }}
                   className={`header__link ${active === item.hash ? 'is-active' : ''}`}
                 >
-                  {item.label}
+                  {t.nav[item.hash]}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
 
-        <Link to={{ pathname: '/', hash: '#contact' }} className="header__cta">
-          Обсудить проект
-        </Link>
+        <div className="header__end">
+          <Link to={{ pathname: home, hash: '#contact' }} className="header__cta">
+            {t.header.cta}
+          </Link>
 
-        <button
-          className="header__burger"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
-        >
-          <span />
-          <span />
-        </button>
+          <LangSwitch />
+
+          <button
+            className="header__burger"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? t.header.closeMenu : t.header.openMenu}
+          >
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
 
       {/* Мобильное меню */}
       <div id="mobile-menu" className="mmenu" aria-hidden={!open} inert={!open}>
-        <nav className="mmenu__nav container" aria-label="Мобильная навигация">
+        <nav className="mmenu__nav container" aria-label={t.header.mobileNavLabel}>
           <ol>
             {navigation.map((item, i) => (
               <li key={item.hash} style={{ '--i': i }}>
-                <Link to={{ pathname: '/', hash: `#${item.hash}` }} onClick={close}>
+                <Link to={{ pathname: home, hash: `#${item.hash}` }} onClick={close}>
                   <span className="mmenu__num">{String(i + 1).padStart(2, '0')}</span>
-                  {item.label}
+                  {t.nav[item.hash]}
                 </Link>
               </li>
             ))}

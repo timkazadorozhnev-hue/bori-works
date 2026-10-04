@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { projects, projectCategories } from '../../data/projects';
+import { useLang } from '../../i18n/LanguageContext';
 import SectionHead from '../ui/SectionHead';
 import ProjectCard from '../projects/ProjectCard';
 import './Projects.css';
@@ -9,11 +9,13 @@ const SIZE_PATTERN = ['wide', 'tall', 'tall', 'wide'];
 
 export default function Projects() {
   const [filter, setFilter] = useState('all');
+  const { t, content } = useLang();
+  const { projects, projectCategories } = content;
 
   // Показываем только категории, в которых есть проекты.
   const categories = useMemo(
     () => projectCategories.filter((c) => c.key === 'all' || projects.some((p) => p.category === c.key)),
-    [],
+    [projects, projectCategories],
   );
 
   const visible = filter === 'all' ? projects : projects.filter((p) => p.category === filter);
@@ -23,12 +25,12 @@ export default function Projects() {
       <div className="container">
         <SectionHead
           index="02"
-          eyebrow="Проекты"
-          title={['Избранные', <span className="serif" key="s">работы</span>]}
-          aside="Фильмы, сериалы, рекламные кампании и клипы, которые мы создали вместе с режиссёрами, брендами и артистами."
+          eyebrow={t.projects.eyebrow}
+          title={[t.projects.title[0], <span className="serif" key="s">{t.projects.title[1]}</span>]}
+          aside={t.projects.aside}
         />
 
-        <div className="projects__filter" role="tablist" aria-label="Фильтр проектов">
+        <div className="projects__filter" role="tablist" aria-label={t.projects.filterLabel}>
           {categories.map((c) => {
             const count = c.key === 'all' ? projects.length : projects.filter((p) => p.category === c.key).length;
             return (

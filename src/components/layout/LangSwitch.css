@@ -1,0 +1,61 @@
+.lswitch {
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1;
+}
+
+.lswitch__item {
+  display: flex;
+  align-items: center;
+}
+
+.lswitch__sep {
+  color: var(--c-dim);
+}
+
+.lswitch__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 44px; /* удобная зона нажатия на сенсорных экранах */
+  padding: 0 4px 0 calc(4px + 0.14em); /* компенсация letter-spacing для центровки */
+  color: var(--c-muted);
+  transition: color 0.3s var(--ease);
+}
+
+.lswitch__link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  transform: translateX(-50%) scale(0);
+  transition: transform 0.4s var(--ease);
+}
+
+.lswitch__link:hover,
+.lswitch__link.is-active {
+  color: var(--c-text);
+}
+
+.lswitch__link.is-active {
+  pointer-events: none;
+}
+
+.lswitch__link.is-active::after {
+  transform: translateX(-50%) scale(1);
+}
+
+@media (max-width: 420px) {
+  .lswitch__link {
+    min-width: 32px;
+  }
+}

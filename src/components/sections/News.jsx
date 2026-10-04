@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { news } from '../../data/news';
+import { useLang } from '../../i18n/LanguageContext';
 import { formatDate } from '../../utils/format';
 import SectionHead from '../ui/SectionHead';
 import Reveal from '../ui/Reveal';
@@ -8,33 +8,34 @@ import { ArrowUpRightIcon } from '../ui/Icons';
 import './News.css';
 
 export default function News() {
-  const [featured, ...rest] = news;
+  const { t, content, lang, lp } = useLang();
+  const [featured, ...rest] = content.news;
 
   return (
     <section id="news" className="news section">
       <div className="container">
         <SectionHead
           index="05"
-          eyebrow="Новости"
-          title={['Журнал', <span className="serif" key="s">студии</span>]}
-          aside="Премьеры, награды, новые проекты и жизнь команды."
+          eyebrow={t.news.eyebrow}
+          title={[t.news.title[0], <span className="serif" key="s">{t.news.title[1]}</span>]}
+          aside={t.news.aside}
         />
 
         {featured && (
           <Reveal as="article" className="news-feat">
-            <Link to={`/news/${featured.slug}`} className="news-feat__link">
+            <Link to={lp(`/news/${featured.slug}`)} className="news-feat__link">
               <div className="news-feat__media media">
                 <Img src={featured.image} alt="" sizes="(max-width: 900px) 100vw, 60vw" />
               </div>
               <div className="news-feat__body">
                 <div className="news__meta">
-                  <time dateTime={featured.date}>{formatDate(featured.date)}</time>
+                  <time dateTime={featured.date}>{formatDate(featured.date, lang)}</time>
                   <span>{featured.category}</span>
                 </div>
                 <h3 className="h-lg news-feat__title">{featured.title}</h3>
                 <p className="muted">{featured.excerpt}</p>
                 <span className="news__more">
-                  Читать <ArrowUpRightIcon />
+                  {t.news.read} <ArrowUpRightIcon />
                 </span>
               </div>
             </Link>
@@ -44,12 +45,12 @@ export default function News() {
         <div className="news__grid">
           {rest.map((item, i) => (
             <Reveal as="article" className="news-card" key={item.slug} delay={i * 0.1}>
-              <Link to={`/news/${item.slug}`} className="news-card__link">
+              <Link to={lp(`/news/${item.slug}`)} className="news-card__link">
                 <div className="news-card__media media">
                   <Img src={item.image} alt="" sizes="(max-width: 760px) 100vw, 33vw" />
                 </div>
                 <div className="news__meta">
-                  <time dateTime={item.date}>{formatDate(item.date)}</time>
+                  <time dateTime={item.date}>{formatDate(item.date, lang)}</time>
                   <span>{item.category}</span>
                 </div>
                 <h3 className="news-card__title">{item.title}</h3>

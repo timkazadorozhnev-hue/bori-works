@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { team } from '../../data/team';
+import { useLang } from '../../i18n/LanguageContext';
 import SectionHead from '../ui/SectionHead';
 import Img from '../ui/Img';
 import Reveal from '../ui/Reveal';
@@ -11,6 +11,8 @@ import './Team.css';
  * scroll-snap + перетаскивание мышью + кнопки + индикатор прогресса.
  */
 export default function Team() {
+  const { t, content } = useLang();
+  const { team } = content;
   const trackRef = useRef(null);
   const drag = useRef({ active: false, moved: false, x: 0, left: 0 });
   const [progress, setProgress] = useState(0);
@@ -65,14 +67,14 @@ export default function Team() {
       <div className="container">
         <SectionHead
           index="04"
-          eyebrow="Команда"
-          title={['Люди, которые', <span className="serif" key="s">делают кино</span>]}
+          eyebrow={t.team.eyebrow}
+          title={[t.team.title[0], <span className="serif" key="s">{t.team.title[1]}</span>]}
         >
           <div className="team__controls">
-            <button className="team__btn" onClick={() => scrollByCard(-1)} disabled={edges.start} aria-label="Назад">
+            <button className="team__btn" onClick={() => scrollByCard(-1)} disabled={edges.start} aria-label={t.team.prev}>
               <ChevronIcon direction="left" />
             </button>
-            <button className="team__btn" onClick={() => scrollByCard(1)} disabled={edges.end} aria-label="Вперёд">
+            <button className="team__btn" onClick={() => scrollByCard(1)} disabled={edges.end} aria-label={t.team.next}>
               <ChevronIcon />
             </button>
           </div>
@@ -88,10 +90,10 @@ export default function Team() {
           onPointerMove={onPointerMove}
           onPointerUp={endDrag}
           onPointerLeave={endDrag}
-          aria-label="Команда BORI WORKS"
+          aria-label={t.team.listLabel}
         >
           {team.map((m, i) => (
-            <li className="tcard" key={m.name}>
+            <li className="tcard" key={m.id}>
               <div className="tcard__photo media">
                 <Img src={m.photo} alt={m.name} sizes="(max-width: 640px) 78vw, 360px" draggable="false" />
                 <span className="tcard__index">{String(i + 1).padStart(2, '0')}</span>

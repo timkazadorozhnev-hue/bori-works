@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useLang } from '../../i18n/LanguageContext';
 import Img from '../ui/Img';
 import Reveal from '../ui/Reveal';
 import './ProjectCard.css';
@@ -7,9 +8,11 @@ import './ProjectCard.css';
  * Карточка проекта в галерее. size: 'wide' | 'tall' — задаёт пропорции кадра.
  */
 export default function ProjectCard({ project, index, size = 'wide', delay = 0 }) {
+  const { t, lp } = useLang();
+
   return (
     <Reveal as="article" className={`pcard pcard--${size}`} delay={delay}>
-      <Link to={`/projects/${project.slug}`} className="pcard__link" aria-label={`${project.title}, ${project.year} — открыть проект`}>
+      <Link to={lp(`/projects/${project.slug}`)} className="pcard__link" aria-label={t.card.open(project.title, project.year)}>
         <div className="pcard__media media">
           <Img
             src={project.cover}
@@ -17,7 +20,7 @@ export default function ProjectCard({ project, index, size = 'wide', delay = 0 }
             sizes={size === 'wide' ? '(max-width: 760px) 100vw, 58vw' : '(max-width: 760px) 100vw, 40vw'}
           />
           <span className="pcard__view" aria-hidden="true">
-            Смотреть
+            {t.card.view}
           </span>
         </div>
 

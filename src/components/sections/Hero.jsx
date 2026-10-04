@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { site } from '../../config/site';
+import { useLang } from '../../i18n/LanguageContext';
 import { pad } from '../../utils/format';
 import { buildSrcSet } from '../../utils/media';
 import { RevealLines } from '../ui/RevealText';
@@ -28,6 +29,8 @@ function Timecode() {
 
 export default function Hero() {
   const { video, poster } = site.hero;
+  const { t, lp } = useLang();
+  const home = lp('/');
 
   return (
     <section id="top" className="hero" aria-label="BORI WORKS">
@@ -68,27 +71,25 @@ export default function Hero() {
             <RevealLines
               as="p"
               className="hero__slogan serif"
-              lines={['Мы снимаем истории,', 'которые остаются', 'после финальных титров.']}
+              lines={t.hero.slogan}
               delay={0.6}
             />
             <Reveal className="hero__actions" delay={0.9}>
-              <Link to={{ pathname: '/', hash: '#projects' }} className="btn btn--solid">
-                Смотреть проекты <ArrowIcon />
+              <Link to={{ pathname: home, hash: '#projects' }} className="btn btn--solid">
+                {t.hero.ctaProjects} <ArrowIcon />
               </Link>
-              <Link to={{ pathname: '/', hash: '#contact' }} className="btn">
-                Связаться с нами
+              <Link to={{ pathname: home, hash: '#contact' }} className="btn">
+                {t.hero.ctaContact}
               </Link>
             </Reveal>
           </div>
         </div>
 
         <Reveal className="hero__bottom" variant="fade" delay={1.1}>
-          <span>Кино</span>
-          <span>Сериалы</span>
-          <span>Реклама</span>
-          <span>Клипы</span>
-          <span>Документальное</span>
-          <Link to={{ pathname: '/', hash: '#about' }} className="hero__scroll" aria-label="Прокрутить вниз">
+          {t.hero.categories.map((c) => (
+            <span key={c}>{c}</span>
+          ))}
+          <Link to={{ pathname: home, hash: '#about' }} className="hero__scroll" aria-label={t.hero.scrollLabel}>
             <span>Scroll</span>
             <i />
           </Link>

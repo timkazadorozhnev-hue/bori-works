@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { navigation, site } from '../../config/site';
+import { useLang } from '../../i18n/LanguageContext';
 import Logo from './Logo';
 import './Footer.css';
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { t, lp } = useLang();
 
   return (
     <footer className="footer">
@@ -13,17 +15,17 @@ export default function Footer() {
           <div className="footer__brand">
             <Logo />
             <p className="muted">
-              {site.tagline}. Фильмы, сериалы, реклама и музыкальные клипы — от идеи до премьеры.
+              {t.meta.tagline}. {t.footer.about}
             </p>
           </div>
 
-          <nav className="footer__col" aria-label="Навигация в подвале">
-            <h3 className="footer__title">Навигация</h3>
+          <nav className="footer__col" aria-label={t.footer.navLabel}>
+            <h3 className="footer__title">{t.footer.nav}</h3>
             <ul>
               {navigation.map((item) => (
                 <li key={item.hash}>
-                  <Link to={{ pathname: '/', hash: `#${item.hash}` }} className="link-line">
-                    {item.label}
+                  <Link to={{ pathname: lp('/'), hash: `#${item.hash}` }} className="link-line">
+                    {t.nav[item.hash]}
                   </Link>
                 </li>
               ))}
@@ -31,7 +33,7 @@ export default function Footer() {
           </nav>
 
           <div className="footer__col">
-            <h3 className="footer__title">Соцсети</h3>
+            <h3 className="footer__title">{t.footer.socials}</h3>
             <ul>
               {site.socials.map((s) => (
                 <li key={s.label}>
@@ -44,7 +46,7 @@ export default function Footer() {
           </div>
 
           <div className="footer__col">
-            <h3 className="footer__title">Контакты</h3>
+            <h3 className="footer__title">{t.footer.contacts}</h3>
             <ul>
               <li>
                 <a href={`mailto:${site.contacts.email}`} className="link-line">
@@ -56,7 +58,7 @@ export default function Footer() {
                   {site.contacts.phone}
                 </a>
               </li>
-              <li className="muted">{site.contacts.address}</li>
+              <li className="muted">{t.contacts.address}</li>
             </ul>
           </div>
         </div>
@@ -66,12 +68,12 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <span>© {year} {site.name}. Все права защищены.</span>
-          <Link to="/privacy" className="link-line">
-            Политика конфиденциальности
+          <span>© {year} {site.name}. {t.footer.rights}</span>
+          <Link to={lp('/privacy')} className="link-line">
+            {t.footer.privacy}
           </Link>
-          <Link to={{ pathname: '/', hash: '#top' }} className="footer__up">
-            Наверх ↑
+          <Link to={{ pathname: lp('/'), hash: '#top' }} className="footer__up">
+            {t.footer.up}
           </Link>
         </div>
       </div>

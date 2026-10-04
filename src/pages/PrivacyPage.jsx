@@ -1,64 +1,45 @@
+import { Fragment } from 'react';
 import { site } from '../config/site';
+import { useLang } from '../i18n/LanguageContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { RevealLines } from '../components/ui/RevealText';
 import './TextPage.css';
 
 /**
- * Политика конфиденциальности — демонстрационный текст.
+ * Политика конфиденциальности — демонстрационный текст (src/i18n/locales/*.js → privacy).
  * Перед публикацией согласуйте финальную редакцию с юристом.
  */
 export default function PrivacyPage() {
-  usePageMeta({
-    title: 'Политика конфиденциальности',
-    description: `Как ${site.name} обрабатывает и защищает персональные данные посетителей сайта.`,
-  });
+  const { t } = useLang();
+  const p = t.privacy;
+
+  usePageMeta({ title: p.title, description: p.description });
 
   return (
     <article className="tpage">
       <div className="container tpage__narrow">
-        <p className="eyebrow">Документы</p>
-        <RevealLines as="h1" className="h-xl tpage__title" lines={['Политика', 'конфиденциальности']} />
+        <p className="eyebrow">{p.eyebrow}</p>
+        <RevealLines as="h1" className="h-xl tpage__title" lines={p.heading} />
 
         <div className="tpage__content">
-          <p className="tpage__lead">
-            Мы бережно относимся к персональным данным и используем их только для того, чтобы ответить на ваш
-            запрос.
+          <p className="tpage__lead">{p.lead}</p>
+
+          {p.sections.map((s) => (
+            <Fragment key={s.title}>
+              <h2>{s.title}</h2>
+              <p>{s.text}</p>
+            </Fragment>
+          ))}
+
+          <h2>{p.rights.title}</h2>
+          <p>
+            {p.rights.text} <a href={`mailto:${site.contacts.email}`}>{site.contacts.email}</a>.
           </p>
 
-          <h2>1. Какие данные мы собираем</h2>
+          <h2>{p.contacts.title}</h2>
           <p>
-            При отправке формы обратной связи мы получаем имя, адрес электронной почты, название компании (если вы
-            его указали) и текст сообщения. Мы не собираем специальные категории персональных данных.
-          </p>
-
-          <h2>2. Цели обработки</h2>
-          <p>
-            Данные используются исключительно для связи с вами по вопросам сотрудничества, подготовки коммерческих
-            предложений и ответов на запросы.
-          </p>
-
-          <h2>3. Хранение и защита</h2>
-          <p>
-            Мы храним данные не дольше, чем это необходимо для достижения целей обработки, и принимаем
-            организационные и технические меры для их защиты. Данные не передаются третьим лицам, кроме случаев,
-            предусмотренных законодательством.
-          </p>
-
-          <h2>4. Cookies и аналитика</h2>
-          <p>
-            Сайт может использовать технические cookies и обезличенную веб-аналитику для улучшения работы. Вы можете
-            отключить cookies в настройках браузера.
-          </p>
-
-          <h2>5. Ваши права</h2>
-          <p>
-            Вы можете запросить доступ к своим данным, их исправление или удаление, написав нам на{' '}
-            <a href={`mailto:${site.contacts.email}`}>{site.contacts.email}</a>.
-          </p>
-
-          <h2>6. Контакты</h2>
-          <p>
-            {site.name}, {site.contacts.address}. Телефон: <a href={`tel:${site.contacts.phoneHref}`}>{site.contacts.phone}</a>.
+            {site.name}, {t.contacts.address}. {p.contacts.phone}:{' '}
+            <a href={`tel:${site.contacts.phoneHref}`}>{site.contacts.phone}</a>.
           </p>
         </div>
       </div>

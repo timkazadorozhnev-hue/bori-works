@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { site } from '../../config/site';
+import { useLang } from '../../i18n/LanguageContext';
 import './Logo.css';
 
 /**
@@ -8,9 +9,10 @@ import './Logo.css';
  */
 export default function Logo({ className = '', onClick }) {
   const { text, image, width, height } = site.logo;
+  const { t, lp } = useLang();
 
   return (
-    <Link to={{ pathname: '/', hash: '#top' }} className={`logo ${className}`} onClick={onClick} aria-label={`${site.name} — на главную`}>
+    <Link to={{ pathname: lp('/'), hash: '#top' }} className={`logo ${className}`} onClick={onClick} aria-label={`${site.name} — ${t.logo.home}`}>
       {image ? (
         <img src={image} alt={site.name} width={width} height={height} className="logo__img" />
       ) : (

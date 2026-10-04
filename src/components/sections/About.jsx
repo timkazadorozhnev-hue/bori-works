@@ -1,4 +1,4 @@
-import { about } from '../../data/about';
+import { useLang } from '../../i18n/LanguageContext';
 import Reveal from '../ui/Reveal';
 import { RevealWords } from '../ui/RevealText';
 import Img from '../ui/Img';
@@ -6,6 +6,9 @@ import Counter from '../ui/Counter';
 import './About.css';
 
 export default function About() {
+  const { t, content } = useLang();
+  const { about } = content;
+
   return (
     <section id="about" className="about section">
       <div className="container">
@@ -19,10 +22,10 @@ export default function About() {
         <div className="about__grid">
           <Reveal className="about__visual">
             <div className="media zoom about__img-main">
-              <Img src={about.image} alt="Оператор на съёмках в горах" sizes="(max-width: 900px) 100vw, 55vw" />
+              <Img src={about.image} alt={t.about.imageAlt} sizes="(max-width: 900px) 100vw, 55vw" />
             </div>
             <div className="media zoom about__img-small">
-              <Img src={about.imageSecondary} alt="Кинокамера на съёмочной площадке" sizes="(max-width: 900px) 50vw, 22vw" />
+              <Img src={about.imageSecondary} alt={t.about.imageSecondaryAlt} sizes="(max-width: 900px) 50vw, 22vw" />
             </div>
           </Reveal>
 
@@ -51,7 +54,7 @@ export default function About() {
 
         <div className="about__approach">
           <Reveal as="h3" className="eyebrow about__subhead">
-            Наш подход
+            {t.about.approach}
           </Reveal>
           <ol className="about__pillars">
             {about.approach.map((a, i) => (
@@ -65,7 +68,7 @@ export default function About() {
         </div>
 
         <Reveal className="about__geo">
-          <h3 className="eyebrow about__subhead">География</h3>
+          <h3 className="eyebrow about__subhead">{t.about.geography}</h3>
           <ul className="about__cities">
             {about.geography.map((city) => (
               <li key={city}>{city}</li>

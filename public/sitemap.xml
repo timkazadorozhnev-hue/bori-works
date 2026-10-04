@@ -1,17 +1,227 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://boriworks.com/</loc><lastmod>2026-10-01</lastmod><priority>1.0</priority></url>
-  <url><loc>https://boriworks.com/projects/severnyi-predel</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
-  <url><loc>https://boriworks.com/projects/gorod-posle-polunochi</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
-  <url><loc>https://boriworks.com/projects/velocity</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
-  <url><loc>https://boriworks.com/projects/neon</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
-  <url><loc>https://boriworks.com/projects/pesok-i-vremya</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
-  <url><loc>https://boriworks.com/projects/tishina-lesa</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
-  <url><loc>https://boriworks.com/projects/orbit</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
-  <url><loc>https://boriworks.com/projects/finalnyi-ryvok</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
-  <url><loc>https://boriworks.com/news/severnyi-predel-premiere</loc><lastmod>2026-09-12</lastmod><priority>0.6</priority></url>
-  <url><loc>https://boriworks.com/news/bori-post-studio</loc><lastmod>2026-07-28</lastmod><priority>0.6</priority></url>
-  <url><loc>https://boriworks.com/news/gorod-series-award</loc><lastmod>2026-05-16</lastmod><priority>0.6</priority></url>
-  <url><loc>https://boriworks.com/news/new-season-development</loc><lastmod>2026-03-03</lastmod><priority>0.6</priority></url>
-  <url><loc>https://boriworks.com/privacy</loc><lastmod>2026-10-01</lastmod><priority>0.2</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://boriworks.com/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/projects/severnyi-predel</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/severnyi-predel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/severnyi-predel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/severnyi-predel"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/projects/gorod-posle-polunochi</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/gorod-posle-polunochi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/gorod-posle-polunochi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/gorod-posle-polunochi"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/projects/velocity</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/velocity"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/velocity"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/velocity"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/projects/neon</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/neon"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/neon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/neon"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/projects/pesok-i-vremya</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/pesok-i-vremya"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/pesok-i-vremya"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/pesok-i-vremya"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/projects/tishina-lesa</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/tishina-lesa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/tishina-lesa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/tishina-lesa"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/projects/orbit</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/orbit"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/orbit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/orbit"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/projects/finalnyi-ryvok</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/finalnyi-ryvok"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/finalnyi-ryvok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/finalnyi-ryvok"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/news/severnyi-predel-premiere</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/news/severnyi-predel-premiere"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/news/severnyi-predel-premiere"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/news/severnyi-predel-premiere"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/news/bori-post-studio</loc>
+    <lastmod>2026-07-28</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/news/bori-post-studio"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/news/bori-post-studio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/news/bori-post-studio"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/news/gorod-series-award</loc>
+    <lastmod>2026-05-16</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/news/gorod-series-award"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/news/gorod-series-award"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/news/gorod-series-award"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/news/new-season-development</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/news/new-season-development"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/news/new-season-development"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/news/new-season-development"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/privacy</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/privacy"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/en</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/en/projects/severnyi-predel</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/severnyi-predel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/severnyi-predel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/severnyi-predel"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/en/projects/gorod-posle-polunochi</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/gorod-posle-polunochi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/gorod-posle-polunochi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/gorod-posle-polunochi"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/en/projects/velocity</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/velocity"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/velocity"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/velocity"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/en/projects/neon</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/neon"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/neon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/neon"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/en/projects/pesok-i-vremya</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/pesok-i-vremya"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/pesok-i-vremya"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/pesok-i-vremya"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/en/projects/tishina-lesa</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/tishina-lesa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/tishina-lesa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/tishina-lesa"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/en/projects/orbit</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/orbit"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/orbit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/orbit"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/en/projects/finalnyi-ryvok</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/finalnyi-ryvok"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/finalnyi-ryvok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/finalnyi-ryvok"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/en/news/severnyi-predel-premiere</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/news/severnyi-predel-premiere"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/news/severnyi-predel-premiere"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/news/severnyi-predel-premiere"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/en/news/bori-post-studio</loc>
+    <lastmod>2026-07-28</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/news/bori-post-studio"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/news/bori-post-studio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/news/bori-post-studio"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/en/news/gorod-series-award</loc>
+    <lastmod>2026-05-16</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/news/gorod-series-award"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/news/gorod-series-award"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/news/gorod-series-award"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/en/news/new-season-development</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/news/new-season-development"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/news/new-season-development"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/news/new-season-development"/>
+  </url>
+  <url>
+    <loc>https://boriworks.com/en/privacy</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/privacy"/>
+  </url>
 </urlset>

@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { site } from '../config/site';
+import { DEFAULT_LANG, LANGUAGES, localizePath } from '../i18n/config';
+import { useLang } from '../i18n/LanguageContext';
 
 function setMeta(attr, key, content) {
   if (!content) return;
@@ -13,13 +15,31 @@ function setMeta(attr, key, content) {
   el.setAttribute('content', content);
 }
 
-/** Обновляет title, description, canonical и OG-теги для текущей страницы. */
-export function usePageMeta({ title, description, image } = {}) {
+/** hreflang-ссылки на языковые версии страницы; для несуществующих страниц — удаляются. */
+function setAlternates(pathname, enabled) {
+  document.head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => el.remove());
+  if (!enabled) return;
+  const entries = [...LANGUAGES.map((l) => [l, l]), ['x-default', DEFAULT_LANG]];
+  entries.forEach(([hreflang, l]) => {
+    const link = document.createElement('link');
+    link.rel = 'alternate';
+    link.hreflang = hreflang;
+    link.href = `${site.url}${localizePath(pathname, l)}`;
+    document.head.appendChild(link);
+  });
+}
+
+/**
+ * Обновляет title, description, canonical, hreflang и OG-теги для текущей страницы.
+ * notFound — страница 404: альтернативные языковые версии не указываются.
+ */
+export function usePageMeta({ title, description, image, notFound = false } = {}) {
   const { pathname } = useLocation();
+  const { lang, t } = useLang();
 
   useEffect(() => {
-    const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.tagline.toLowerCase()}`;
-    const desc = description || site.description;
+    const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — ${t.meta.tagline.toLowerCase()}`;
+    const desc = description || t.meta.description;
     const url = `${site.url}${pathname}`;
 
     document.title = fullTitle;
@@ -28,11 +48,13 @@ export function usePageMeta({ title, description, image } = {}) {
     setMeta('property', 'og:description', desc);
     setMeta('property', 'og:url', url);
     setMeta('property', 'og:image', image);
+    setMeta('property', 'og:locale', t.meta.ogLocale);
     setMeta('name', 'twitter:title', fullTitle);
     setMeta('name', 'twitter:description', desc);
     setMeta('name', 'twitter:image', image);
 
     const canonical = document.head.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', url);
-  }, [title, description, image, pathname]);
+    setAlternates(pathname, !notFound);
+  }, [title, description, image, pathname, notFound, lang, t]);
 }

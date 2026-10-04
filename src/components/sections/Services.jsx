@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { services } from '../../data/services';
+import { useLang } from '../../i18n/LanguageContext';
 import SectionHead from '../ui/SectionHead';
 import Reveal from '../ui/Reveal';
 import Img from '../ui/Img';
@@ -13,6 +13,8 @@ import './Services.css';
  * Все устройства: клик раскрывает описание направления.
  */
 export default function Services() {
+  const { t, content, lp } = useLang();
+  const { services } = content;
   const [hovered, setHovered] = useState(null);
   const [open, setOpen] = useState(0);
   const previewRef = useRef(null);
@@ -36,9 +38,9 @@ export default function Services() {
       <div className="container">
         <SectionHead
           index="03"
-          eyebrow="Услуги"
-          title={['Что мы', <span className="serif" key="s">создаём</span>]}
-          aside="Восемь направлений, одна команда. Можем взять проект целиком или подключиться на любом этапе."
+          eyebrow={t.services.eyebrow}
+          title={[t.services.title[0], <span className="serif" key="s">{t.services.title[1]}</span>]}
+          aside={t.services.aside}
         />
 
         <div
@@ -96,10 +98,10 @@ export default function Services() {
 
         <Reveal className="services__cta">
           <p className="h-lg">
-            Есть идея, сценарий или бриф? <span className="serif">Расскажите нам.</span>
+            {t.services.ctaText[0]} <span className="serif">{t.services.ctaText[1]}</span>
           </p>
-          <Link to={{ pathname: '/', hash: '#contact' }} className="btn">
-            Обсудить проект <ArrowIcon />
+          <Link to={{ pathname: lp('/'), hash: '#contact' }} className="btn">
+            {t.services.cta} <ArrowIcon />
           </Link>
         </Reveal>
       </div>

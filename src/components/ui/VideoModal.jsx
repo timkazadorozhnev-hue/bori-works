@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { useLang } from '../../i18n/LanguageContext';
 import { useLockBody } from '../../hooks/useLockBody';
 import { CloseIcon } from './Icons';
 import './VideoModal.css';
@@ -8,7 +9,9 @@ import './VideoModal.css';
  * Полноэкранный видеоплеер.
  * video — прямая ссылка на mp4/webm, embed — ссылка для iframe (YouTube/Vimeo).
  */
-export default function VideoModal({ open, onClose, video, embed, poster, title = 'Видео' }) {
+export default function VideoModal({ open, onClose, video, embed, poster, title: titleProp }) {
+  const { t } = useLang();
+  const title = titleProp || t.video.title;
   const closeRef = useRef(null);
   useLockBody(open);
 
@@ -38,15 +41,15 @@ export default function VideoModal({ open, onClose, video, embed, poster, title 
   } else {
     player = (
       <div className="vmodal__empty">
-        <p className="eyebrow">Скоро</p>
-        <p className="h-lg">Видео появится здесь в ближайшее время</p>
+        <p className="eyebrow">{t.video.soon}</p>
+        <p className="h-lg">{t.video.soonText}</p>
       </div>
     );
   }
 
   return createPortal(
     <div className="vmodal" role="dialog" aria-modal="true" aria-label={title} onClick={onClose}>
-      <button ref={closeRef} className="vmodal__close" onClick={onClose} aria-label="Закрыть видео">
+      <button ref={closeRef} className="vmodal__close" onClick={onClose} aria-label={t.video.close}>
         <CloseIcon />
       </button>
       <div className="vmodal__frame" onClick={(e) => e.stopPropagation()}>
