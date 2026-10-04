@@ -24,7 +24,7 @@ export const site = {
   },
 
   contacts: {
-    email: 'boriworks@gmail.com',
+    email: 'boriworks.info@gmail.com',
     phone: '+7 (701) 218-77-88',
     phoneHref: '+77012187788',
     address: 'Москва, Берсеневская наб., 6, стр. 3',
@@ -33,8 +33,7 @@ export const site = {
   },
 
   socials: [
-    { label: 'Instagram', short: 'IG', url: 'https://instagram.com/boriworks' },
-    { label: 'Vimeo', short: 'VI', url: 'https://vimeo.com/boriworks' },
+    { label: 'Instagram', short: 'IG', url: 'https://www.instagram.com/boriworks.world' },
     { label: 'YouTube', short: 'YT', url: 'https://youtube.com/@boriworks' },
     { label: 'Telegram', short: 'TG', url: 'https://t.me/boriworks' },
   ],
@@ -52,7 +51,7 @@ export const site = {
   /**
    * Showreel. Поддерживаются три варианта (используется первый заполненный):
    *   video — прямая ссылка на mp4 (например '/video/showreel.mp4');
-   *   embed — ссылка для iframe (YouTube: https://www.youtube.com/embed/ID, Vimeo: https://player.vimeo.com/video/ID).
+   *   embed — ссылка для iframe (YouTube: https://www.youtube.com/embed/ID).
    * Сейчас подключён короткий демонстрационный ролик с лицензией CC0.
    */
   showreel: {

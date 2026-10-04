@@ -7,7 +7,7 @@ import './VideoModal.css';
 
 /**
  * Полноэкранный видеоплеер.
- * video — прямая ссылка на mp4/webm, embed — ссылка для iframe (YouTube/Vimeo).
+ * video — прямая ссылка на mp4/webm, embed — ссылка для iframe (YouTube).
  */
 export default function VideoModal({ open, onClose, video, embed, poster, title: titleProp }) {
   const { t } = useLang();

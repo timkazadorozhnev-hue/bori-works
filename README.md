@@ -30,7 +30,7 @@ npm run preview   # просмотр production-сборки → http://localhos
 положите файлы в `public/images/...` и укажите путь строкой: `cover: '/images/projects/film.jpg'`.
 
 - **Hero-видео**: `site.hero.video = '/video/hero.mp4'` (poster останется как превью).
-- **Showreel**: `site.showreel.video` (mp4) или `site.showreel.embed` (YouTube/Vimeo embed-URL).
+- **Showreel**: `site.showreel.video` (mp4) или `site.showreel.embed` (YouTube embed-URL).
 - **Трейлер проекта**: добавьте проекту поле `video: '/video/trailer.mp4'` — на странице появится кнопка.
 
 ### Логотип
