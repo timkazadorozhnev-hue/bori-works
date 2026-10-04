@@ -1,20 +1,44 @@
 .logo {
   display: inline-flex;
   align-items: center;
+  flex: none;
   line-height: 1;
 }
 
+/* Знак сохраняет пропорции: задаётся только высота */
 .logo__img {
-  height: 28px;
+  height: 60px;
   width: auto;
+  transition: opacity 0.4s var(--ease), height 0.6s var(--ease);
 }
 
+.header.is-scrolled .logo__img {
+  height: 50px;
+}
+
+.logo:hover .logo__img {
+  opacity: 0.82;
+}
+
+.logo--footer .logo__img {
+  height: clamp(96px, 9vw, 128px);
+}
+
+@media (max-width: 760px) {
+  .logo__img,
+  .header.is-scrolled .logo__img {
+    height: 50px;
+  }
+}
+
+/* Текстовый вариант (если site.logo.image не задан) */
 .logo__text {
   display: inline-flex;
   align-items: center;
   gap: 0.45em;
-  font-size: 1rem;
-  letter-spacing: 0.32em;
+  font-family: var(--f-serif);
+  font-size: 1.25rem;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
 }
 

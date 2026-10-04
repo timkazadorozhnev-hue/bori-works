@@ -1,9 +1,22 @@
 .footer {
+  position: relative;
   padding-top: clamp(80px, 9vw, 140px);
   padding-bottom: 32px;
-  border-top: 1px solid var(--c-line);
-  background: var(--c-bg);
+  background:
+    radial-gradient(80% 60% at 50% 100%, rgba(30, 44, 74, 0.45), transparent 70%),
+    var(--c-bg);
   overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: min(80%, 1100px);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--c-line-strong), transparent);
 }
 
 .footer__top {
@@ -14,20 +27,24 @@
 
 .footer__brand {
   display: grid;
-  gap: 24px;
+  gap: 28px;
   align-content: start;
-  max-width: 360px;
+  justify-items: start;
+  max-width: 380px;
 }
 
 .footer__brand p {
-  font-size: var(--fs-sm);
+  font-family: var(--f-serif);
+  font-size: 1.1875rem;
+  line-height: 1.5;
 }
 
 .footer__title {
   margin-bottom: 20px;
+  font-family: var(--f-sans);
   font-size: var(--fs-xs);
-  font-weight: 500;
-  letter-spacing: 0.2em;
+  font-weight: 400;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--c-dim);
 }
@@ -35,18 +52,25 @@
 .footer__col ul {
   display: grid;
   gap: 10px;
-  font-size: var(--fs-sm);
+  font-family: var(--f-serif);
+  font-size: 1.125rem;
 }
 
+/* Огромная надпись, растворяющаяся в темноте — как финальный титр */
 .footer__wordmark {
-  margin: clamp(64px, 8vw, 120px) 0 24px;
-  font-size: min(17.2vw, 19rem);
-  font-weight: 600;
-  line-height: 0.8;
-  letter-spacing: -0.06em;
+  margin: clamp(64px, 8vw, 120px) 0 8px;
+  font-family: var(--f-serif);
+  font-size: min(12.6vw, 14.5rem);
+  font-weight: 300;
+  line-height: 0.85;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
   white-space: nowrap;
+  background: linear-gradient(180deg, rgba(235, 232, 226, 0.16), rgba(235, 232, 226, 0) 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
-  -webkit-text-stroke: 1px var(--c-line-strong);
   user-select: none;
 }
 
@@ -59,7 +83,7 @@
   border-top: 1px solid var(--c-line);
   font-size: var(--fs-xs);
   color: var(--c-muted);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 }
 
 .footer__up {
@@ -67,7 +91,7 @@
 }
 
 .footer__up:hover {
-  color: var(--c-accent);
+  color: var(--c-text);
 }
 
 @media (max-width: 1000px) {

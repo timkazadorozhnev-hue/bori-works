@@ -51,6 +51,7 @@ export default {
   },
 
   hero: {
+    eyebrow: 'Независимая киностудия',
     slogan: ['Мы снимаем истории,', 'которые остаются', 'после финальных титров.'],
     ctaProjects: 'Смотреть проекты',
     ctaContact: 'Связаться с нами',
@@ -59,8 +60,8 @@ export default {
   },
 
   about: {
-    imageAlt: 'Оператор на съёмках в горах',
-    imageSecondaryAlt: 'Кинокамера на съёмочной площадке',
+    imageAlt: 'Одинокий всадник в степи',
+    imageSecondaryAlt: 'Лошадь в утреннем тумане',
     approach: 'Наш подход',
     geography: 'География',
   },

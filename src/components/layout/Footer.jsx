@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer__top">
           <div className="footer__brand">
-            <Logo />
+            <Logo className="logo--footer" />
             <p className="muted">
               {t.meta.tagline}. {t.footer.about}
             </p>

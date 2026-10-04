@@ -37,14 +37,15 @@
 
 .cform__field input:focus,
 .cform__field textarea:focus {
-  border-color: var(--c-text);
+  border-color: var(--c-accent);
 }
 
 .cform__field label {
   position: absolute;
   left: 0;
   top: 36px;
-  font-size: var(--fs-md);
+  font-family: var(--f-serif);
+  font-size: 1.25rem;
   color: var(--c-muted);
   pointer-events: none;
   transform-origin: left top;
@@ -140,6 +141,10 @@
 
 .cform__success .serif {
   color: var(--c-accent);
+}
+
+.cform__submit .btn {
+  min-width: 200px;
 }
 
 @media (max-width: 600px) {

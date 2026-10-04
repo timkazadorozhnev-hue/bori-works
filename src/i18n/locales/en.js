@@ -60,6 +60,7 @@ export default {
   },
 
   hero: {
+    eyebrow: 'Independent film studio',
     slogan: ['We tell stories', 'that stay with you', 'long after the credits roll.'],
     ctaProjects: 'View projects',
     ctaContact: 'Get in touch',
@@ -68,8 +69,8 @@ export default {
   },
 
   about: {
-    imageAlt: 'Camera operator filming in the mountains',
-    imageSecondaryAlt: 'Film camera on set',
+    imageAlt: 'A lone rider on the steppe',
+    imageSecondaryAlt: 'A horse in the morning mist',
     approach: 'Our approach',
     geography: 'Where we film',
   },

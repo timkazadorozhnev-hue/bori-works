@@ -1,118 +1,137 @@
 .about__meta {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 24px;
-  margin-bottom: 40px;
+  gap: 18px;
+  margin-bottom: 36px;
 }
 
 .about__statement {
-  max-width: 22ch;
-  font-size: clamp(2rem, 1rem + 3.6vw, 5rem);
-  font-weight: 400;
-  line-height: 1.04;
-  letter-spacing: -0.035em;
-  margin-bottom: clamp(72px, 10vw, 160px);
+  max-width: 24ch;
+  margin: 0 auto clamp(64px, 8vw, 120px);
+  font-family: var(--f-serif);
+  font-size: clamp(2rem, 1.1rem + 3.1vw, 4.25rem);
+  font-weight: 300;
+  line-height: 1.12;
+  text-align: center;
+  text-wrap: balance;
 }
 
+/* Два кадра рядом, как в раскадровке: пейзаж и крупный план */
 .about__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: clamp(40px, 7vw, 120px);
-  align-items: start;
+  gap: clamp(56px, 7vw, 104px);
 }
 
 .about__visual {
-  position: relative;
-  padding-bottom: 18%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(8px, 1vw, 16px);
+  height: clamp(340px, 44vw, 720px);
 }
 
-.about__img-main {
-  aspect-ratio: 4 / 5;
-}
-
+.about__img-main,
 .about__img-small {
+  height: 100%;
+}
+
+.about__img-small img {
+  object-position: 80% 50%;
+}
+
+/* Нижний край кадров растворяется в фоне */
+.about__img-main::after,
+.about__img-small::after {
+  content: '';
   position: absolute;
-  right: -8%;
-  bottom: 0;
-  width: 42%;
-  aspect-ratio: 3 / 4;
-  border: 8px solid var(--c-bg);
+  inset: 55% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(6, 8, 13, 0.75));
+  pointer-events: none;
 }
 
 .about__text {
   display: grid;
-  gap: 24px;
-  padding-top: 8%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px clamp(32px, 6vw, 96px);
+  max-width: 1200px;
+  margin-inline: auto;
 }
 
 .about__lead {
+  font-family: var(--f-serif);
+  font-size: clamp(1.375rem, 1.1rem + 0.8vw, 1.875rem);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.about__text > p.muted {
   font-size: var(--fs-md);
-  line-height: 1.55;
+  line-height: 1.7;
 }
 
 .about__stats {
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 40px 0 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: clamp(24px, 3vw, 48px) 0 0;
   border-top: 1px solid var(--c-line);
-}
-
-.about__stat {
-  padding: 28px 0;
   border-bottom: 1px solid var(--c-line);
 }
 
-.about__stat:nth-child(odd) {
-  padding-right: 24px;
-  border-right: 1px solid var(--c-line);
+.about__stat {
+  padding: 32px 16px;
+  text-align: center;
 }
 
-.about__stat:nth-child(even) {
-  padding-left: 28px;
+.about__stat + .about__stat {
+  border-left: 1px solid var(--c-line);
 }
 
 .about__stat dd {
   margin: 0;
   display: grid;
-  gap: 6px;
+  gap: 8px;
 }
 
 .about__stat-num {
-  font-size: clamp(2.5rem, 1.6rem + 2.4vw, 4.25rem);
+  font-family: var(--f-serif);
+  font-size: clamp(2.75rem, 1.8rem + 2.6vw, 4.75rem);
   font-weight: 300;
   line-height: 1;
-  letter-spacing: -0.04em;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .about__stat-label {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: var(--c-muted);
 }
 
 .about__subhead {
-  margin-bottom: 40px;
+  margin-bottom: 44px;
 }
 
 .about__approach {
-  margin-top: clamp(96px, 12vw, 180px);
+  margin-top: clamp(104px, 12vw, 180px);
+  text-align: center;
 }
 
 .about__pillars {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--c-line);
+  text-align: left;
 }
 
 .about__pillar {
   display: grid;
   gap: 16px;
   align-content: start;
-  padding: 36px 36px 0 0;
+  padding: 40px clamp(24px, 3vw, 48px);
+  border-top: 1px solid var(--c-line);
 }
 
 .about__pillar + .about__pillar {
-  padding-left: 36px;
   border-left: 1px solid var(--c-line);
 }
 
@@ -124,21 +143,26 @@
 }
 
 .about__geo {
-  margin-top: clamp(96px, 12vw, 180px);
+  margin-top: clamp(104px, 12vw, 180px);
+  text-align: center;
 }
 
 .about__cities {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.1em 0.5em;
-  font-size: clamp(1.75rem, 1rem + 3vw, 4rem);
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  max-width: 1200px;
+  margin-inline: auto;
+  font-family: var(--f-serif);
+  font-size: clamp(1.875rem, 1.1rem + 3vw, 4.25rem);
+  font-weight: 300;
+  line-height: 1.2;
 }
 
 .about__cities li {
   color: var(--c-dim);
-  transition: color 0.4s var(--ease);
+  transition: color 0.5s var(--ease);
 }
 
 .about__cities li:hover {
@@ -146,23 +170,26 @@
 }
 
 .about__cities li:not(:last-child)::after {
-  content: '/';
+  content: '·';
   margin-left: 0.5em;
   color: var(--c-line-strong);
-  font-weight: 300;
 }
 
 @media (max-width: 900px) {
-  .about__grid {
+  .about__text {
     grid-template-columns: 1fr;
   }
 
-  .about__img-small {
-    right: 0;
+  .about__stats {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .about__text {
-    padding-top: 0;
+  .about__stat:nth-child(3) {
+    border-left: 0;
+  }
+
+  .about__stat:nth-child(n + 3) {
+    border-top: 1px solid var(--c-line);
   }
 
   .about__pillars {
@@ -173,6 +200,20 @@
   .about__pillar + .about__pillar {
     padding: 32px 0;
     border-left: 0;
-    border-bottom: 1px solid var(--c-line);
+  }
+}
+
+@media (max-width: 640px) {
+  .about__visual {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .about__img-main {
+    aspect-ratio: 4 / 3;
+  }
+
+  .about__img-small {
+    aspect-ratio: 16 / 10;
   }
 }

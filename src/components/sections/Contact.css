@@ -1,21 +1,41 @@
+.contact {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Свечение «лунного» неба за заголовком */
+.contact::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: min(1200px, 120%);
+  height: 70%;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgba(40, 58, 96, 0.42), transparent);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .contact__meta {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 24px;
   margin-bottom: 40px;
 }
 
 .contact__title {
-  font-size: clamp(2.75rem, 1rem + 7vw, 9.5rem);
-  font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: -0.05em;
-  margin-bottom: clamp(64px, 9vw, 140px);
+  font-family: var(--f-serif);
+  font-size: clamp(2.75rem, 1rem + 6vw, 8rem);
+  font-weight: 300;
+  line-height: 1;
+  text-align: center;
+  margin-bottom: clamp(64px, 8vw, 120px);
 }
 
 .contact__title .serif {
   color: var(--c-accent);
-  padding-left: 0.8em;
 }
 
 .contact__grid {
@@ -44,8 +64,9 @@
 }
 
 .contact__big {
-  font-size: clamp(1.5rem, 1rem + 1.6vw, 2.5rem);
-  letter-spacing: -0.03em;
+  font-family: var(--f-serif);
+  font-size: clamp(1.625rem, 1.1rem + 1.6vw, 2.75rem);
+  font-weight: 400;
   line-height: 1.15;
   word-break: break-word;
 }
@@ -74,22 +95,24 @@
 
 .contact__socials a {
   display: inline-block;
-  padding: 10px 18px;
-  font-size: var(--fs-sm);
+  padding: 9px 18px;
+  font-family: var(--f-serif);
+  font-size: 1.0625rem;
+  font-weight: 500;
   border: 1px solid var(--c-line-strong);
-  border-radius: 999px;
-  transition: background 0.4s var(--ease), color 0.4s var(--ease), border-color 0.4s;
+  border-radius: 3px;
+  transition: background 0.4s var(--ease), border-color 0.4s;
 }
 
 .contact__socials a:hover {
-  background: var(--c-text);
-  color: var(--c-bg);
-  border-color: var(--c-text);
+  background: rgba(235, 232, 226, 0.08);
+  border-color: rgba(235, 232, 226, 0.6);
 }
 
+/* Форма на полупрозрачной «стеклянной» панели */
 .contact__form {
   padding: clamp(28px, 4vw, 56px);
-  background: var(--c-graphite);
+  background: linear-gradient(160deg, rgba(24, 34, 56, 0.55), rgba(12, 17, 28, 0.55));
   border: 1px solid var(--c-line);
 }
 

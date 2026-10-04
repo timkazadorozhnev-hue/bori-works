@@ -1,7 +1,7 @@
 .team__controls {
   display: flex;
   gap: 10px;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .team__btn {
@@ -11,12 +11,12 @@
   place-items: center;
   border: 1px solid var(--c-line-strong);
   border-radius: 50%;
-  transition: background 0.4s var(--ease), color 0.4s var(--ease), opacity 0.3s;
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease), opacity 0.3s;
 }
 
 .team__btn:hover:not(:disabled) {
-  background: var(--c-text);
-  color: var(--c-bg);
+  background: rgba(235, 232, 226, 0.1);
+  border-color: rgba(235, 232, 226, 0.6);
 }
 
 .team__btn:disabled {
@@ -59,40 +59,53 @@
 
 .tcard__photo {
   aspect-ratio: 3 / 4;
-  margin-bottom: 24px;
+  margin-bottom: 26px;
 }
 
+/* Портреты: почти монохромные, при наведении «оживают» */
 .tcard__photo img {
-  filter: grayscale(1) contrast(1.05) brightness(0.9);
-  transition: filter 0.9s var(--ease), transform 1.4s var(--ease), opacity 1.2s var(--ease);
+  filter: grayscale(0.85) contrast(1.08) brightness(0.8);
+  transition: filter 1s var(--ease), transform 1.6s var(--ease), opacity 1.2s var(--ease);
+}
+
+.tcard__photo::after {
+  content: '';
+  position: absolute;
+  inset: 50% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(6, 8, 13, 0.7));
+  pointer-events: none;
 }
 
 .tcard:hover .tcard__photo img {
-  filter: grayscale(0) contrast(1) brightness(1);
+  filter: grayscale(0.2) contrast(1.02) brightness(0.95);
   transform: scale(1.04);
+}
+
+.tcard:hover .tcard__photo::before {
+  opacity: 0.25;
 }
 
 .tcard__index {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  font-size: var(--fs-xs);
-  letter-spacing: 0.1em;
-  color: var(--c-text);
-  mix-blend-mode: difference;
+  z-index: 1;
+  top: 18px;
+  left: 20px;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 1.125rem;
+  color: var(--c-accent);
 }
 
 .tcard__name {
   font-size: var(--fs-lg);
   font-weight: 400;
-  letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
 .tcard__role {
-  margin-top: 8px;
+  margin-top: 10px;
   font-size: var(--fs-xs);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--c-accent);
 }
@@ -114,7 +127,7 @@
 .team__progress span {
   position: absolute;
   inset: 0;
-  background: var(--c-text);
+  background: var(--c-accent);
   transform-origin: left;
   transition: transform 0.3s var(--ease);
 }
@@ -125,6 +138,6 @@
   }
 
   .team__controls {
-    justify-content: flex-start;
+    justify-content: center;
   }
 }

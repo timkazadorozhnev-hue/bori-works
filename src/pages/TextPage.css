@@ -1,7 +1,20 @@
 /* Общие стили текстовых страниц: новость, политика конфиденциальности */
 .tpage {
+  position: relative;
   padding-top: calc(var(--header-h) + clamp(48px, 7vw, 112px));
   padding-bottom: var(--section-y);
+  isolation: isolate;
+}
+
+/* Мягкое лунное свечение в верхней части страницы */
+.tpage::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 70vh;
+  z-index: -1;
+  background: radial-gradient(70% 70% at 50% 0%, rgba(36, 52, 88, 0.42), transparent 70%);
+  pointer-events: none;
 }
 
 .tpage__narrow {
@@ -17,8 +30,13 @@
   text-wrap: balance;
 }
 
+.tpage__title .line-mask:nth-child(2) > span {
+  font-style: italic;
+  color: var(--c-accent);
+}
+
 .tpage__cover {
-  aspect-ratio: 21 / 9;
+  aspect-ratio: 2.39 / 1;
   margin-bottom: clamp(48px, 6vw, 96px);
 }
 
@@ -26,15 +44,16 @@
   display: grid;
   gap: 24px;
   font-size: var(--fs-md);
-  line-height: 1.7;
+  line-height: 1.8;
   color: var(--c-muted);
 }
 
 .tpage__content h2 {
-  margin-top: 32px;
+  margin-top: 36px;
+  padding-top: 36px;
+  border-top: 1px solid var(--c-line);
   font-size: var(--fs-lg);
   font-weight: 400;
-  letter-spacing: -0.02em;
   color: var(--c-text);
 }
 
@@ -45,10 +64,11 @@
 }
 
 .tpage__lead {
-  font-size: var(--fs-lg);
+  font-family: var(--f-serif);
+  font-size: clamp(1.625rem, 1.2rem + 1.2vw, 2.375rem);
+  font-weight: 300;
   line-height: 1.35;
   color: var(--c-text);
-  letter-spacing: -0.015em;
 }
 
 .tpage__more {
@@ -72,7 +92,7 @@
 
 .tpage__more time {
   font-size: var(--fs-xs);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--c-muted);
 }
