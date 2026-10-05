@@ -72,7 +72,6 @@ export default {
     imageAlt: 'A lone rider on the steppe',
     imageSecondaryAlt: 'A horse in the morning mist',
     approach: 'Our approach',
-    geography: 'Where we film',
   },
 
   projects: {

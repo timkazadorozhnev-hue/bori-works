@@ -142,39 +142,6 @@
   color: var(--c-accent);
 }
 
-.about__geo {
-  margin-top: clamp(104px, 12vw, 180px);
-  text-align: center;
-}
-
-.about__cities {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.1em 0.5em;
-  max-width: 1200px;
-  margin-inline: auto;
-  font-family: var(--f-serif);
-  font-size: clamp(1.875rem, 1.1rem + 3vw, 4.25rem);
-  font-weight: 300;
-  line-height: 1.2;
-}
-
-.about__cities li {
-  color: var(--c-dim);
-  transition: color 0.5s var(--ease);
-}
-
-.about__cities li:hover {
-  color: var(--c-text);
-}
-
-.about__cities li:not(:last-child)::after {
-  content: '·';
-  margin-left: 0.5em;
-  color: var(--c-line-strong);
-}
-
 @media (max-width: 900px) {
   .about__text {
     grid-template-columns: 1fr;

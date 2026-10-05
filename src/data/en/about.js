@@ -31,5 +31,4 @@ export const aboutEn = {
       text: 'Our own script department, production unit and post-production studio.',
     },
   ],
-  geography: ['Moscow', 'Saint Petersburg', 'Dubai', 'Istanbul', 'Tbilisi', 'Almaty', 'Yerevan', 'Belgrade'],
 };

@@ -64,7 +64,6 @@ export default {
     imageAlt: 'Одинокий всадник в степи',
     imageSecondaryAlt: 'Лошадь в утреннем тумане',
     approach: 'Наш подход',
-    geography: 'География',
   },
 
   projects: {

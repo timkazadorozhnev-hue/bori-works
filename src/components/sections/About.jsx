@@ -66,15 +66,6 @@ export default function About() {
             ))}
           </ol>
         </div>
-
-        <Reveal className="about__geo">
-          <h3 className="eyebrow about__subhead">{t.about.geography}</h3>
-          <ul className="about__cities">
-            {about.geography.map((city) => (
-              <li key={city}>{city}</li>
-            ))}
-          </ul>
-        </Reveal>
       </div>
     </section>
   );
