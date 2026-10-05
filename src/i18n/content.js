@@ -23,7 +23,6 @@ const en = {
   about: {
     ...about,
     ...aboutEn,
-    stats: byIndex(about.stats, aboutEn.stats),
     approach: byIndex(about.approach, aboutEn.approach),
   },
   news: byKey(news, newsEn, 'slug'),

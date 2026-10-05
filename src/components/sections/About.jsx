@@ -2,7 +2,6 @@ import { useLang } from '../../i18n/LanguageContext';
 import Reveal from '../ui/Reveal';
 import { RevealWords } from '../ui/RevealText';
 import Img from '../ui/Img';
-import Counter from '../ui/Counter';
 import './About.css';
 
 export default function About() {
@@ -35,20 +34,6 @@ export default function About() {
                 {p}
               </Reveal>
             ))}
-
-            <dl className="about__stats">
-              {about.stats.map((s, i) => (
-                <Reveal key={s.label} delay={i * 0.08} className="about__stat">
-                  <dt className="visually-hidden">{s.label}</dt>
-                  <dd>
-                    <span className="about__stat-num">
-                      <Counter value={s.value} suffix={s.suffix} />
-                    </span>
-                    <span className="about__stat-label">{s.label}</span>
-                  </dd>
-                </Reveal>
-              ))}
-            </dl>
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 /**
  * About section — English version.
- * Images and stat values are taken from src/data/about.js;
- * `stats` and `approach` follow the same order as the Russian file.
+ * Images are taken from src/data/about.js;
+ * `approach` follows the same order as the Russian file.
  */
 export const aboutEn = {
   eyebrow: 'About',
@@ -10,12 +10,6 @@ export const aboutEn = {
   intro: [
     'BORI WORKS was founded in 2014 by director Boris Arsenyev and producer Maria Kovaleva. Today we are a team of 40 people with a network of long-standing partners in 12 countries.',
     'We take projects from first idea to premiere: development, screenwriting, casting, production, post-production and release. We work with platforms, brands, agencies and artists.',
-  ],
-  stats: [
-    { label: 'years in the industry' },
-    { label: 'projects' },
-    { label: 'festival awards' },
-    { label: 'countries filmed in' },
   ],
   approach: [
     {

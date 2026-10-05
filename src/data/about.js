@@ -12,12 +12,6 @@ export const about = {
   // Одинокий всадник в степи и лошадь в тумане
   image: unsplash('1562595706-61433957484a', 1600),
   imageSecondary: unsplash('1538138124022-2534cfd17d8c', 1000),
-  stats: [
-    { value: 12, suffix: '', label: 'лет в индустрии' },
-    { value: 180, suffix: '+', label: 'проектов' },
-    { value: 34, suffix: '', label: 'фестивальные награды' },
-    { value: 12, suffix: '', label: 'стран съёмок' },
-  ],
   approach: [
     {
       title: 'История прежде всего',
