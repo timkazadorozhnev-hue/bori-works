@@ -29,7 +29,7 @@ export const servicesEn = {
   },
   post: {
     title: 'Post-production',
-    text: 'Our own studio: editing, colour grading, VFX, graphics, sound and mastering for any platform.',
+    text: 'Editing, colour grading, VFX, graphics, sound and mastering for any platform.',
     tags: ['Editing', 'Colour', 'VFX', 'Sound'],
   },
   script: {
