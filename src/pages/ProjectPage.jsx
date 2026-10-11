@@ -129,19 +129,21 @@ export default function ProjectPage() {
         </section>
       )}
 
-      {/* Следующий проект */}
-      <Link to={lp(`/projects/${next.slug}`)} className="project__next">
-        <div className="project__next-media media">
-          <Img src={next.cover} alt="" sizes="100vw" />
-        </div>
-        <div className="project__next-content container">
-          <span className="eyebrow">{t.project.next}</span>
-          <span className="h-xl">{next.title}</span>
-          <span className="project__next-arrow" aria-hidden="true">
-            <ChevronIcon />
-          </span>
-        </div>
-      </Link>
+      {/* Следующий проект (если проект единственный — блок не нужен) */}
+      {next !== project && (
+        <Link to={lp(`/projects/${next.slug}`)} className="project__next">
+          <div className="project__next-media media">
+            <Img src={next.cover} alt="" sizes="100vw" />
+          </div>
+          <div className="project__next-content container">
+            <span className="eyebrow">{t.project.next}</span>
+            <span className="h-xl">{next.title}</span>
+            <span className="project__next-arrow" aria-hidden="true">
+              <ChevronIcon />
+            </span>
+          </div>
+        </Link>
+      )}
 
       {project.video && (
         <VideoModal open={videoOpen} onClose={closeVideo} video={project.video} poster={project.cover} title={project.title} />

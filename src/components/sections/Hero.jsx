@@ -28,10 +28,6 @@ export default function Hero() {
       </div>
 
       <div className="hero__content container">
-        <Reveal className="hero__eyebrow" variant="fade" delay={0.2}>
-          {t.hero.eyebrow}
-        </Reveal>
-
         <RevealLines as="h1" className="hero__title" lines={['Bori Works']} delay={0.35} />
 
         <RevealLines as="p" className="hero__slogan" lines={t.hero.slogan} delay={0.6} step={0.1} />
@@ -47,7 +43,7 @@ export default function Hero() {
       </div>
 
       <Reveal className="hero__bottom container" variant="fade" delay={1.2}>
-        <span className="hero__est">Est. 2014 · Moscow</span>
+        <span className="hero__est">{t.hero.est}</span>
         <ul className="hero__cats">
           {t.hero.categories.map((c) => (
             <li key={c}>{c}</li>

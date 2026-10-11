@@ -112,9 +112,26 @@
   color: var(--c-muted);
 }
 
+/* Вертикальный постер — показываем целиком, без обрезки */
+.pcard--poster .pcard__media {
+  height: auto;
+  aspect-ratio: 2 / 3;
+}
+
+.pcard__view svg {
+  margin-left: 4px;
+}
+
 @media (hover: none) {
   .pcard__view {
     display: none;
+  }
+
+  /* Внешнюю ссылку на тач-экранах видно сразу — иначе неясно, куда ведёт постер */
+  .pcard--external .pcard__view {
+    display: block;
+    opacity: 1;
+    transform: none;
   }
 }
 
@@ -122,5 +139,9 @@
   .pcard__media {
     height: auto;
     aspect-ratio: 4 / 5;
+  }
+
+  .pcard--poster .pcard__media {
+    aspect-ratio: 2 / 3;
   }
 }

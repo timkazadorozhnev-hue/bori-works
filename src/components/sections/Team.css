@@ -53,6 +53,12 @@
   pointer-events: none;
 }
 
+/* Один участник — карточка по центру, под заголовком секции, без перетаскивания */
+.team__track--single {
+  justify-content: center;
+  cursor: default;
+}
+
 .tcard {
   scroll-snap-align: start;
 }
@@ -83,6 +89,19 @@
 
 .tcard:hover .tcard__photo::before {
   opacity: 0.25;
+}
+
+/* Монограмма вместо портрета, пока нет фотографии */
+.tcard__monogram {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: clamp(3.5rem, 2.5rem + 3vw, 6rem);
+  letter-spacing: 0.04em;
+  color: var(--c-dim);
 }
 
 .tcard__index {

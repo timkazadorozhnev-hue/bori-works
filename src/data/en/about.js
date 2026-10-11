@@ -6,15 +6,15 @@
 export const aboutEn = {
   eyebrow: 'About',
   statement:
-    'We are an independent full-service film company. We make films, series and commercials that deserve to be seen on the big screen.',
+    'We create feature films and other screen stories — from the first idea and screenplay to the final frame and the release plan. We combine an auteur approach, professional production and modern technology.',
   intro: [
-    'BORI WORKS was founded in 2014 by director Boris Arsenyev and producer Maria Kovaleva. Today we are a team of 40 people with a network of long-standing partners in 12 countries.',
-    'We take projects from first idea to premiere: development, screenwriting, casting, production, post-production and release. We work with platforms, brands, agencies and artists.',
+    'BORI WORKS was founded in 2026 by producer and director Gulshat Smagulova.',
+    'We take projects from first idea to premiere: development, screenwriting, casting, production, post-production and release.',
   ],
   approach: [
     {
-      title: 'Story first',
-      text: 'Every project starts with the question “why”. The visual form grows out of the story, not the other way round.',
+      title: 'Vision first',
+      text: 'We start with the image, the feeling and the thought that should stay with the audience. Everything else — language, form and technology — serves to bring them to life.',
     },
     {
       title: 'Uncompromising craft',
@@ -22,7 +22,7 @@ export const aboutEn = {
     },
     {
       title: 'The full cycle under one roof',
-      text: 'Our own script department, production unit and post-production studio.',
+      text: 'Screenwriting, film production and support for every film all the way to the big screen and film festivals.',
     },
   ],
 };

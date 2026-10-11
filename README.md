@@ -15,13 +15,12 @@ npm run preview   # просмотр production-сборки → http://localhos
 
 | Что | Файл |
 | --- | --- |
-| Название, логотип, контакты, соцсети, фон hero, showreel, домен | `src/config/site.js` |
+| Название, логотип, контакты, соцсети, фон hero, домен | `src/config/site.js` |
 | Пункты меню | `src/config/site.js` → `navigation` |
 | Тексты «О компании», цифры, география | `src/data/about.js` |
 | Проекты (+ категории фильтра) | `src/data/projects.js` |
 | Услуги | `src/data/services.js` |
 | Команда | `src/data/team.js` |
-| Новости | `src/data/news.js` |
 | Цвета, шрифты, отступы | `src/styles/global.css` (`:root`) |
 | SEO по умолчанию, OG-теги, JSON-LD | `index.html` |
 
@@ -30,7 +29,6 @@ npm run preview   # просмотр production-сборки → http://localhos
 положите файлы в `public/images/...` и укажите путь строкой: `cover: '/images/projects/film.jpg'`.
 
 - **Hero-видео**: `site.hero.video = '/video/hero.mp4'` (poster останется как превью).
-- **Showreel**: `site.showreel.video` (mp4) или `site.showreel.embed` (YouTube embed-URL).
 - **Трейлер проекта**: добавьте проекту поле `video: '/video/trailer.mp4'` — на странице появится кнопка.
 
 ### Логотип
@@ -51,17 +49,17 @@ npm run preview   # просмотр production-сборки → http://localhos
 ```
 src/
   config/site.js          глобальные настройки
-  data/                   контент (проекты, команда, новости, услуги, о компании)
+  data/                   контент (проекты, команда, услуги, о компании)
   components/
     layout/               Header, Footer, Logo, Layout, ScrollManager
-    sections/             Hero, About, Projects, Services, Showreel, Team, News, Contact
+    sections/             Hero, About, Projects, Services, Team, Contact
     projects/             ProjectCard
     contact/              ContactForm
     ui/                   Reveal, RevealText, Img, VideoModal, SectionHead, Counter, Icons
-  pages/                  HomePage, ProjectPage, NewsArticlePage, PrivacyPage, NotFoundPage
+  pages/                  HomePage, ProjectPage, PrivacyPage, NotFoundPage
   hooks/                  useInView, usePageMeta, useLockBody
   services/               contactService (отправка формы)
-  utils/                  media (Unsplash/srcset), format (даты)
+  utils/                  media (Unsplash/srcset)
   styles/global.css       дизайн-токены и общие стили
 scripts/generate-sitemap.js
 ```

@@ -3,7 +3,7 @@ import { site } from '../../config/site.js';
 /**
  * Interface strings — English version.
  * Keep the structure identical to ru.js.
- * Section content (projects, news, team, etc.) lives in src/data/en/.
+ * Section content (projects, team, etc.) lives in src/data/en/.
  */
 export default {
   meta: {
@@ -27,7 +27,6 @@ export default {
     projects: 'Projects',
     services: 'Services',
     team: 'Team',
-    news: 'News',
     contact: 'Contact',
   },
 
@@ -55,17 +54,16 @@ export default {
   },
 
   contacts: {
-    address: 'Bersenevskaya Embankment 6, bldg. 3, Moscow',
-    addressNote: 'Mon–Fri, 10:00–19:00',
+    address: 'Almaty',
   },
 
   hero: {
-    eyebrow: 'Independent film studio',
     slogan: ['We tell stories', 'that stay with you', 'long after the credits roll.'],
     ctaProjects: 'View projects',
     ctaContact: 'Get in touch',
     categories: ['Film', 'Series', 'Commercials', 'Music videos', 'Documentary'],
     scrollLabel: 'Scroll down',
+    est: 'Est. 2026 · Almaty',
   },
 
   about: {
@@ -84,6 +82,8 @@ export default {
   card: {
     view: 'View',
     open: (title, year) => `${title}, ${year} — open project`,
+    external: 'Kinopoisk',
+    openExternal: (title, year) => `${title}, ${year} — watch on Kinopoisk (opens in a new tab)`,
   },
 
   services: {
@@ -94,24 +94,12 @@ export default {
     cta: 'Discuss a project',
   },
 
-  showreel: {
-    watch: (title) => `Watch ${title}`,
-    sub: 'highlights from our work',
-  },
-
   team: {
     eyebrow: 'Team',
-    title: ['The people who', 'make the films'],
+    title: ['The Mind Behind', 'BORI WORKS'],
     prev: 'Previous',
     next: 'Next',
     listLabel: 'BORI WORKS team',
-  },
-
-  news: {
-    eyebrow: 'News',
-    title: ['Studio', 'journal'],
-    aside: 'Premieres, awards, new projects and life at the studio.',
-    read: 'Read',
   },
 
   contact: {
@@ -163,12 +151,6 @@ export default {
     still: (title, n) => `${title} — still ${n}`,
     credits: 'Credits',
     next: 'Next project',
-  },
-
-  article: {
-    notFound: 'Article not found',
-    back: 'All news',
-    more: 'More news',
   },
 
   notFound: {

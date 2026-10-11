@@ -108,14 +108,6 @@
   padding-bottom: 48px;
 }
 
-.hero__eyebrow {
-  font-family: var(--f-serif);
-  font-size: clamp(1.125rem, 0.9rem + 0.8vw, 1.625rem);
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: var(--c-muted);
-}
-
 .hero__title {
   margin: clamp(10px, 1.2vw, 20px) 0 clamp(18px, 2vw, 32px);
   font-family: var(--f-serif);

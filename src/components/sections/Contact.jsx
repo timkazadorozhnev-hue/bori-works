@@ -9,13 +9,13 @@ import './Contact.css';
 export default function Contact() {
   const { email, phone, phoneHref, mapUrl } = site.contacts;
   const { t } = useLang();
-  const { address, addressNote } = t.contacts;
+  const { address } = t.contacts;
 
   return (
     <section id="contact" className="contact section">
       <div className="container">
         <Reveal className="contact__meta" variant="fade">
-          <span className="shead__index">06</span>
+          <span className="shead__index">05</span>
           <span className="eyebrow">{t.contact.eyebrow}</span>
         </Reveal>
 
@@ -44,7 +44,6 @@ export default function Contact() {
               <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="contact__addr">
                 {address} <ArrowUpRightIcon />
               </a>
-              <span className="muted contact__note">{addressNote}</span>
             </Reveal>
             <Reveal className="contact__block" delay={0.15}>
               <span className="contact__label">{t.contact.socials}</span>

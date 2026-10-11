@@ -50,7 +50,7 @@ export default function Projects() {
 
         <div className="projects__grid" key={filter}>
           {visible.map((project, i) => {
-            const size = SIZE_PATTERN[i % SIZE_PATTERN.length];
+            const size = project.poster ? 'poster' : SIZE_PATTERN[i % SIZE_PATTERN.length];
             return (
               <div key={project.slug} className={`projects__cell projects__cell--${size} ${i % 2 ? 'is-right' : 'is-left'}`}>
                 <ProjectCard project={project} index={i} size={size} delay={(i % 2) * 0.1} />

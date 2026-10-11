@@ -29,9 +29,8 @@ export const site = {
     email: 'boriworks.info@gmail.com',
     phone: '+7 (701) 218-77-88',
     phoneHref: '+77012187788',
-    address: 'Москва, Берсеневская наб., 6, стр. 3',
-    addressNote: 'Пн–Пт, 10:00–19:00',
-    mapUrl: 'https://yandex.ru/maps/?text=Москва%2C%20Берсеневская%20набережная%2C%206с3',
+    address: 'Алматы',
+    mapUrl: 'https://yandex.ru/maps/?text=Алматы',
   },
 
   socials: [
@@ -49,20 +48,6 @@ export const site = {
     // Ночное звёздное небо над горным хребтом
     poster: unsplash('1519681393784-d120267933ba', 2400),
   },
-
-  /**
-   * Showreel. Поддерживаются три варианта (используется первый заполненный):
-   *   video — прямая ссылка на mp4 (например '/video/showreel.mp4');
-   *   embed — ссылка для iframe (YouTube: https://www.youtube.com/embed/ID).
-   * Сейчас подключён короткий демонстрационный ролик с лицензией CC0.
-   */
-  showreel: {
-    title: 'Showreel 2026',
-    duration: '02:14',
-    poster: unsplash('1492691527719-9d1e07e534b4', 2400),
-    video: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
-    embed: '',
-  },
 };
 
 /** Пункты навигации. hash — id секции на главной странице. */
@@ -72,6 +57,5 @@ export const navigation = [
   { label: 'Проекты', hash: 'projects' },
   { label: 'Услуги', hash: 'services' },
   { label: 'Команда', hash: 'team' },
-  { label: 'Новости', hash: 'news' },
   { label: 'Контакты', hash: 'contact' },
 ];

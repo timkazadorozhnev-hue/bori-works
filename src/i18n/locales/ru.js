@@ -48,16 +48,15 @@ export default {
 
   contacts: {
     address: site.contacts.address,
-    addressNote: site.contacts.addressNote,
   },
 
   hero: {
-    eyebrow: 'Независимая киностудия',
     slogan: ['Мы снимаем истории,', 'которые остаются', 'после финальных титров.'],
     ctaProjects: 'Смотреть проекты',
     ctaContact: 'Связаться с нами',
     categories: ['Кино', 'Сериалы', 'Реклама', 'Клипы', 'Документальное'],
     scrollLabel: 'Прокрутить вниз',
+    est: 'Основана в 2026 · Алматы',
   },
 
   about: {
@@ -77,6 +76,8 @@ export default {
   card: {
     view: 'Смотреть',
     open: (title, year) => `${title}, ${year} — открыть проект`,
+    external: 'Кинопоиск',
+    openExternal: (title, year) => `${title}, ${year} — смотреть на Кинопоиске (откроется в новой вкладке)`,
   },
 
   services: {
@@ -87,24 +88,12 @@ export default {
     cta: 'Обсудить проект',
   },
 
-  showreel: {
-    watch: (title) => `Смотреть ${title}`,
-    sub: 'избранные кадры наших работ',
-  },
-
   team: {
     eyebrow: 'Команда',
-    title: ['Люди, которые', 'делают кино'],
+    title: ['Создатель', 'BORI WORKS'],
     prev: 'Назад',
     next: 'Вперёд',
     listLabel: 'Команда BORI WORKS',
-  },
-
-  news: {
-    eyebrow: 'Новости',
-    title: ['Журнал', 'студии'],
-    aside: 'Премьеры, награды, новые проекты и жизнь команды.',
-    read: 'Читать',
   },
 
   contact: {
@@ -156,12 +145,6 @@ export default {
     still: (title, n) => `${title} — кадр ${n}`,
     credits: 'Команда проекта',
     next: 'Следующий проект',
-  },
-
-  article: {
-    notFound: 'Новость не найдена',
-    back: 'Все новости',
-    more: 'Ещё новости',
   },
 
   notFound: {

@@ -68,10 +68,19 @@
   grid-column: span 5;
 }
 
+/* Вертикальный постер — узкая колонка по центру сетки */
+.projects__cell--poster {
+  grid-column: 5 / span 4;
+}
+
 @media (max-width: 1000px) {
   .projects__cell--wide,
   .projects__cell--tall {
     grid-column: span 6;
+  }
+
+  .projects__cell--poster {
+    grid-column: 4 / span 6;
   }
 }
 
@@ -82,7 +91,8 @@
   }
 
   .projects__cell--wide,
-  .projects__cell--tall {
+  .projects__cell--tall,
+  .projects__cell--poster {
     grid-column: auto;
   }
 }

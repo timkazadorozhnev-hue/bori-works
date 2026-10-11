@@ -13,6 +13,8 @@ import './Team.css';
 export default function Team() {
   const { t, content } = useLang();
   const { team } = content;
+  // Один участник — без ленты: кнопки, прогресс и перетаскивание не нужны.
+  const single = team.length < 2;
   const trackRef = useRef(null);
   const drag = useRef({ active: false, moved: false, x: 0, left: 0 });
   const [progress, setProgress] = useState(0);
@@ -70,23 +72,25 @@ export default function Team() {
           eyebrow={t.team.eyebrow}
           title={[t.team.title[0], <span className="serif" key="s">{t.team.title[1]}</span>]}
         >
-          <div className="team__controls">
-            <button className="team__btn" onClick={() => scrollByCard(-1)} disabled={edges.start} aria-label={t.team.prev}>
-              <ChevronIcon direction="left" />
-            </button>
-            <button className="team__btn" onClick={() => scrollByCard(1)} disabled={edges.end} aria-label={t.team.next}>
-              <ChevronIcon />
-            </button>
-          </div>
+          {!single && (
+            <div className="team__controls">
+              <button className="team__btn" onClick={() => scrollByCard(-1)} disabled={edges.start} aria-label={t.team.prev}>
+                <ChevronIcon direction="left" />
+              </button>
+              <button className="team__btn" onClick={() => scrollByCard(1)} disabled={edges.end} aria-label={t.team.next}>
+                <ChevronIcon />
+              </button>
+            </div>
+          )}
         </SectionHead>
       </div>
 
       <Reveal variant="fade">
         <ul
-          className={`team__track ${dragging ? 'is-dragging' : ''}`}
+          className={['team__track', single && 'team__track--single', dragging && 'is-dragging'].filter(Boolean).join(' ')}
           ref={trackRef}
           onScroll={update}
-          onPointerDown={onPointerDown}
+          onPointerDown={single ? undefined : onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={endDrag}
           onPointerLeave={endDrag}
@@ -95,22 +99,30 @@ export default function Team() {
           {team.map((m, i) => (
             <li className="tcard" key={m.id}>
               <div className="tcard__photo media">
-                <Img src={m.photo} alt={m.name} sizes="(max-width: 640px) 78vw, 360px" draggable="false" />
+                {m.photo ? (
+                  <Img src={m.photo} alt={m.name} sizes="(max-width: 640px) 78vw, 360px" draggable="false" />
+                ) : (
+                  <span className="tcard__monogram" aria-hidden="true">
+                    {m.name.split(' ').map((w) => w[0]).join('')}
+                  </span>
+                )}
                 <span className="tcard__index">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <h3 className="tcard__name">{m.name}</h3>
               <p className="tcard__role">{m.role}</p>
-              <p className="tcard__bio">{m.bio}</p>
+              {m.bio && <p className="tcard__bio">{m.bio}</p>}
             </li>
           ))}
         </ul>
       </Reveal>
 
-      <div className="container">
-        <div className="team__progress" aria-hidden="true">
-          <span style={{ transform: `scaleX(${0.15 + progress * 0.85})` }} />
+      {!single && (
+        <div className="container">
+          <div className="team__progress" aria-hidden="true">
+            <span style={{ transform: `scaleX(${0.15 + progress * 0.85})` }} />
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

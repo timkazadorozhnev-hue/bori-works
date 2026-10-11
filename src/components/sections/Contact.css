@@ -83,10 +83,6 @@
   color: var(--c-accent);
 }
 
-.contact__note {
-  font-size: var(--fs-sm);
-}
-
 .contact__socials {
   display: flex;
   flex-wrap: wrap;

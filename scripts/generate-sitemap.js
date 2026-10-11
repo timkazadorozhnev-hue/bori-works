@@ -1,5 +1,5 @@
 /**
- * Генерирует public/sitemap.xml из данных сайта (проекты, новости).
+ * Генерирует public/sitemap.xml из данных сайта (проекты).
  * Запускается автоматически перед `npm run build` (скрипт prebuild).
  * Домен берётся из src/config/site.js → site.url.
  * Каждая страница выводится на всех языках сайта (/..., /en/...) со ссылками hreflang.
@@ -8,7 +8,6 @@ import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { site } from '../src/config/site.js';
 import { projects } from '../src/data/projects.js';
-import { news } from '../src/data/news.js';
 import { DEFAULT_LANG, LANGUAGES, localizePath } from '../src/i18n/config.js';
 
 const today = new Date().toISOString().slice(0, 10);
@@ -16,7 +15,6 @@ const today = new Date().toISOString().slice(0, 10);
 const pages = [
   { loc: '/', priority: '1.0', lastmod: today },
   ...projects.map((p) => ({ loc: `/projects/${p.slug}`, priority: '0.8', lastmod: today })),
-  ...news.map((n) => ({ loc: `/news/${n.slug}`, priority: '0.6', lastmod: n.date })),
   { loc: '/privacy', priority: '0.2', lastmod: today },
 ];
 
