@@ -71,5 +71,6 @@ export const team = [
     name: 'Виктор Сологуб',
     role: 'Музыкальный продюсер, кинокомпозитор',
     photo: '/images/team/sologub.jpg',
+    link: 'https://www.kinopoisk.ru/name/654505/',
   },
 ];
