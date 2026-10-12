@@ -91,6 +91,49 @@
   opacity: 0.25;
 }
 
+/* Фото со ссылкой на Кинопоиск: метка в углу появляется при наведении */
+.tcard__photo[href] {
+  display: block;
+}
+
+.tcard__ext {
+  position: absolute;
+  z-index: 1;
+  top: 14px;
+  right: 14px;
+  padding: 6px 12px;
+  font-family: var(--f-serif);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(235, 232, 226, 0.5);
+  border-radius: 3px;
+  background: rgba(6, 8, 13, 0.25);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.5s var(--ease), transform 0.6s var(--ease);
+}
+
+.tcard__ext svg {
+  margin-left: 4px;
+}
+
+.tcard:hover .tcard__ext,
+.tcard__photo:focus-visible .tcard__ext {
+  opacity: 1;
+  transform: none;
+}
+
+/* На тач-экранах наведения нет — метку видно сразу, иначе неясно, что фото кликабельно */
+@media (hover: none) {
+  .tcard__ext {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Монограмма вместо портрета, пока нет фотографии */
 .tcard__monogram {
   position: absolute;

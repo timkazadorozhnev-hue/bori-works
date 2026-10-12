@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://boriworks.com/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <loc>https://www.boriworks.com/</loc>
+    <lastmod>2026-10-12</lastmod>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.boriworks.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.boriworks.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.boriworks.com/"/>
   </url>
   <url>
-    <loc>https://boriworks.com/projects/grazhdane-kryshi</loc>
-    <lastmod>2026-10-11</lastmod>
+    <loc>https://www.boriworks.com/projects/grazhdane-kryshi</loc>
+    <lastmod>2026-10-12</lastmod>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/grazhdane-kryshi"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/grazhdane-kryshi"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/grazhdane-kryshi"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.boriworks.com/projects/grazhdane-kryshi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.boriworks.com/en/projects/grazhdane-kryshi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.boriworks.com/projects/grazhdane-kryshi"/>
   </url>
   <url>
-    <loc>https://boriworks.com/privacy</loc>
-    <lastmod>2026-10-11</lastmod>
+    <loc>https://www.boriworks.com/privacy</loc>
+    <lastmod>2026-10-12</lastmod>
     <priority>0.2</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/privacy"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/privacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.boriworks.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.boriworks.com/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.boriworks.com/privacy"/>
   </url>
   <url>
-    <loc>https://boriworks.com/en</loc>
-    <lastmod>2026-10-11</lastmod>
+    <loc>https://www.boriworks.com/en</loc>
+    <lastmod>2026-10-12</lastmod>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.boriworks.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.boriworks.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.boriworks.com/"/>
   </url>
   <url>
-    <loc>https://boriworks.com/en/projects/grazhdane-kryshi</loc>
-    <lastmod>2026-10-11</lastmod>
+    <loc>https://www.boriworks.com/en/projects/grazhdane-kryshi</loc>
+    <lastmod>2026-10-12</lastmod>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/projects/grazhdane-kryshi"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/projects/grazhdane-kryshi"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/projects/grazhdane-kryshi"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.boriworks.com/projects/grazhdane-kryshi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.boriworks.com/en/projects/grazhdane-kryshi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.boriworks.com/projects/grazhdane-kryshi"/>
   </url>
   <url>
-    <loc>https://boriworks.com/en/privacy</loc>
-    <lastmod>2026-10-11</lastmod>
+    <loc>https://www.boriworks.com/en/privacy</loc>
+    <lastmod>2026-10-12</lastmod>
     <priority>0.2</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://boriworks.com/privacy"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://boriworks.com/en/privacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://boriworks.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.boriworks.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.boriworks.com/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.boriworks.com/privacy"/>
   </url>
 </urlset>

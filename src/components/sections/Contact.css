@@ -71,6 +71,24 @@
   word-break: break-word;
 }
 
+.contact__phones {
+  display: grid;
+  gap: 8px;
+}
+
+.contact__phones li {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.contact__region {
+  min-width: 2.4em;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
+  color: var(--c-dim);
+}
+
 .contact__addr {
   display: inline-flex;
   align-items: center;

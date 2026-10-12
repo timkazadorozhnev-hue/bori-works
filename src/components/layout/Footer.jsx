@@ -53,11 +53,14 @@ export default function Footer() {
                   {site.contacts.email}
                 </a>
               </li>
-              <li>
-                <a href={`tel:${site.contacts.phoneHref}`} className="link-line">
-                  {site.contacts.phone}
-                </a>
-              </li>
+              {site.contacts.phones.map((p) => (
+                <li key={p.region} className="footer__phone">
+                  <span className="footer__region">{p.region}</span>
+                  <a href={`tel:${p.href}`} className="link-line">
+                    {p.phone}
+                  </a>
+                </li>
+              ))}
               <li className="muted">{t.contacts.address}</li>
             </ul>
           </div>

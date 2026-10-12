@@ -7,9 +7,9 @@ import { site } from '../../config/site.js';
  */
 export default {
   meta: {
-    title: 'BORI WORKS — Feature Film Production',
+    title: 'BORI WORKS — Professional Film Production',
     tagline: 'Full-service film production company',
-    description: 'BORI WORKS produces feature films, series, commercials, music videos, documentaries and other video projects.',
+    description: 'We bring together masters of directing, screenwriting and cinematography to create profound feature, documentary and music films.',
     ogLocale: 'en_US',
   },
 
@@ -58,7 +58,7 @@ export default {
   },
 
   hero: {
-    slogan: ['We tell stories', 'that stay with you', 'long after the credits roll.'],
+    slogan: ['Rooted in the Steppe.', 'Looking above.'],
     ctaProjects: 'View projects',
     ctaContact: 'Get in touch',
     categories: ['Film', 'Series', 'Commercials', 'Music videos', 'Documentary'],
@@ -96,10 +96,12 @@ export default {
 
   team: {
     eyebrow: 'Team',
-    title: ['The Mind Behind', 'BORI WORKS'],
+    title: ['Our', 'team'],
     prev: 'Previous',
     next: 'Next',
     listLabel: 'BORI WORKS team',
+    external: 'Kinopoisk',
+    profile: (name) => `${name} — Kinopoisk profile (opens in a new tab)`,
   },
 
   contact: {

@@ -3,7 +3,7 @@ import { useLang } from '../../i18n/LanguageContext';
 import SectionHead from '../ui/SectionHead';
 import Img from '../ui/Img';
 import Reveal from '../ui/Reveal';
-import { ChevronIcon } from '../ui/Icons';
+import { ArrowUpRightIcon, ChevronIcon } from '../ui/Icons';
 import './Team.css';
 
 /**
@@ -63,6 +63,13 @@ export default function Team() {
     drag.current.active = false;
     setDragging(false);
   };
+  // После перетаскивания отпущенная кнопка мыши не должна открывать ссылку на Кинопоиск.
+  const onClickCapture = (e) => {
+    if (drag.current.moved) {
+      e.preventDefault();
+      drag.current.moved = false;
+    }
+  };
 
   return (
     <section id="team" className="team section">
@@ -94,25 +101,37 @@ export default function Team() {
           onPointerMove={onPointerMove}
           onPointerUp={endDrag}
           onPointerLeave={endDrag}
+          onClickCapture={onClickCapture}
           aria-label={t.team.listLabel}
         >
-          {team.map((m, i) => (
-            <li className="tcard" key={m.id}>
-              <div className="tcard__photo media">
-                {m.photo ? (
-                  <Img src={m.photo} alt={m.name} sizes="(max-width: 640px) 78vw, 360px" draggable="false" />
-                ) : (
-                  <span className="tcard__monogram" aria-hidden="true">
-                    {m.name.split(' ').map((w) => w[0]).join('')}
-                  </span>
-                )}
-                <span className="tcard__index">{String(i + 1).padStart(2, '0')}</span>
-              </div>
-              <h3 className="tcard__name">{m.name}</h3>
-              <p className="tcard__role">{m.role}</p>
-              {m.bio && <p className="tcard__bio">{m.bio}</p>}
-            </li>
-          ))}
+          {team.map((m, i) => {
+            const Photo = m.link ? 'a' : 'div';
+            const linkProps = m.link
+              ? { href: m.link, target: '_blank', rel: 'noopener noreferrer', draggable: 'false', 'aria-label': t.team.profile(m.name) }
+              : {};
+            return (
+              <li className={['tcard', m.link && 'tcard--link'].filter(Boolean).join(' ')} key={m.id}>
+                <Photo className="tcard__photo media" {...linkProps}>
+                  {m.photo ? (
+                    <Img src={m.photo} alt={m.name} sizes="(max-width: 640px) 78vw, 360px" draggable="false" />
+                  ) : (
+                    <span className="tcard__monogram" aria-hidden="true">
+                      {m.name.split(' ').map((w) => w[0]).join('')}
+                    </span>
+                  )}
+                  <span className="tcard__index">{String(i + 1).padStart(2, '0')}</span>
+                  {m.link && (
+                    <span className="tcard__ext" aria-hidden="true">
+                      {t.team.external} <ArrowUpRightIcon />
+                    </span>
+                  )}
+                </Photo>
+                <h3 className="tcard__name">{m.name}</h3>
+                <p className="tcard__role">{m.role}</p>
+                {m.bio && <p className="tcard__bio">{m.bio}</p>}
+              </li>
+            );
+          })}
         </ul>
       </Reveal>
 

@@ -7,10 +7,10 @@
 }
 
 .about__statement {
-  max-width: 24ch;
+  max-width: 28ch;
   margin: 0 auto clamp(64px, 8vw, 120px);
   font-family: var(--f-serif);
-  font-size: clamp(2rem, 1.1rem + 3.1vw, 4.25rem);
+  font-size: clamp(1.75rem, 0.95rem + 2.5vw, 3.5rem);
   font-weight: 300;
   line-height: 1.12;
   text-align: center;

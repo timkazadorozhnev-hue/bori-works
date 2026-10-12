@@ -3,7 +3,7 @@ import { RevealLines } from './RevealText';
 import './SectionHead.css';
 
 /**
- * Шапка секции: индекс, eyebrow, заголовок (массив строк) и необязательный текст справа.
+ * Шапка секции: индекс, eyebrow, необязательный заголовок (массив строк) и необязательный текст справа.
  */
 export default function SectionHead({ index, eyebrow, title, aside, children }) {
   return (
@@ -13,7 +13,7 @@ export default function SectionHead({ index, eyebrow, title, aside, children }) 
         <span className="eyebrow">{eyebrow}</span>
       </Reveal>
       <div className="shead__row">
-        <RevealLines lines={title} className="h-xl shead__title" />
+        {title && <RevealLines lines={title} className="h-xl shead__title" />}
         {(aside || children) && (
           <Reveal className="shead__aside" delay={0.2}>
             {aside && <p className="muted">{aside}</p>}

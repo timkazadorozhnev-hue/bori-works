@@ -7,7 +7,7 @@ import { ArrowUpRightIcon } from '../ui/Icons';
 import './Contact.css';
 
 export default function Contact() {
-  const { email, phone, phoneHref, mapUrl } = site.contacts;
+  const { email, phones, mapUrl } = site.contacts;
   const { t } = useLang();
   const { address } = t.contacts;
 
@@ -35,9 +35,16 @@ export default function Contact() {
             </Reveal>
             <Reveal className="contact__block" delay={0.05}>
               <span className="contact__label">{t.contact.phone}</span>
-              <a href={`tel:${phoneHref}`} className="contact__big link-line">
-                {phone}
-              </a>
+              <ul className="contact__phones">
+                {phones.map((p) => (
+                  <li key={p.region}>
+                    <span className="contact__region">{p.region}</span>
+                    <a href={`tel:${p.href}`} className="contact__big link-line">
+                      {p.phone}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </Reveal>
             <Reveal className="contact__block" delay={0.1}>
               <span className="contact__label">{t.contact.address}</span>

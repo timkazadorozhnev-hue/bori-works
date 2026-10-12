@@ -56,6 +56,20 @@
   font-size: 1.125rem;
 }
 
+.footer__phone {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.footer__region {
+  min-width: 2.2em;
+  font-family: var(--f-sans);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
+  color: var(--c-dim);
+}
+
 /* Огромная надпись, растворяющаяся в темноте — как финальный титр */
 .footer__wordmark {
   margin: clamp(64px, 8vw, 120px) 0 8px;
