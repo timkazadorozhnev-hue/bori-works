@@ -39,4 +39,8 @@ export const teamEn = {
     name: 'Elena Aitova',
     role: 'Production Designer & Costume Designer',
   },
+  sologub: {
+    name: 'Viktor Sologub',
+    role: 'Music Producer & Film Composer',
+  },
 };

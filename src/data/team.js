@@ -66,4 +66,10 @@ export const team = [
     photo: '/images/team/aitova.jpg',
     link: 'https://www.kinopoisk.ru/name/6991889/',
   },
+  {
+    id: 'sologub',
+    name: 'Виктор Сологуб',
+    role: 'Музыкальный продюсер, кинокомпозитор',
+    photo: '/images/team/sologub.jpg',
+  },
 ];
