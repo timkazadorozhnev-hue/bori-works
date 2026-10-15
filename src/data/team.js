@@ -76,8 +76,15 @@ export const team = [
   {
     id: 'mereke',
     name: 'Адиль Мереке',
-    role: 'Режиссер, сценарист, монтажер',
+    role: 'Режиссёр, сценарист, монтажёр',
     photo: '/images/team/mereke.jpg',
     link: 'https://www.kinopoisk.ru/name/6344942/',
+  },
+  {
+    id: 'zadarnovsky',
+    name: 'Валерий Задарновский',
+    role: 'Режиссёр, клипмейкер, музыкальный продюсер',
+    photo: '/images/team/zadarnovsky.jpg',
+    link: 'https://www.kinopoisk.ru/name/2281846/',
   },
 ];

@@ -47,4 +47,8 @@ export const teamEn = {
     name: 'Adil Mereke',
     role: 'Director, Screenwriter & Editor',
   },
+  zadarnovsky: {
+    name: 'Valeriy Zadarnovsky',
+    role: 'Director, Music Video Director & Music Producer',
+  },
 };
