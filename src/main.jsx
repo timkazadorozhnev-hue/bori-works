@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { redirectToStoredLang } from './i18n/config';
 // Глобальные стили подключаются первыми, чтобы стили компонентов могли их переопределять.
 import './styles/global.css';
@@ -14,5 +15,7 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <App />
     </BrowserRouter>
+    {/* Статистика посещений Vercel Web Analytics (включается в панели проекта → Analytics) */}
+    <Analytics />
   </StrictMode>,
 );
