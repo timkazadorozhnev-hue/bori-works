@@ -43,4 +43,8 @@ export const teamEn = {
     name: 'Viktor Sologub',
     role: 'Music Producer & Film Composer',
   },
+  mereke: {
+    name: 'Adil Mereke',
+    role: 'Director, Screenwriter & Editor',
+  },
 };
